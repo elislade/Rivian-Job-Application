@@ -6,20 +6,446 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1CD1FB85245C91B90069BB8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB84245C91B90069BB8B /* AppDelegate.swift */; };
+		1CD1FB87245C91B90069BB8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB86245C91B90069BB8B /* SceneDelegate.swift */; };
+		1CD1FB8E245C91BB0069BB8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FB8D245C91BB0069BB8B /* Preview Assets.xcassets */; };
+		1CD1FB91245C91BB0069BB8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FB8F245C91BB0069BB8B /* LaunchScreen.storyboard */; };
+		1CD1FBA9245C92650069BB8B /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB97245C92640069BB8B /* ScannerView.swift */; };
+		1CD1FBAA245C92650069BB8B /* VehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB98245C92640069BB8B /* VehicleView.swift */; };
+		1CD1FBAB245C92650069BB8B /* CharacteristicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB99245C92640069BB8B /* CharacteristicView.swift */; };
+		1CD1FBAC245C92650069BB8B /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9A245C92640069BB8B /* ServiceView.swift */; };
+		1CD1FBAD245C92650069BB8B /* DescriptorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9B245C92640069BB8B /* DescriptorView.swift */; };
+		1CD1FBAE245C92650069BB8B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9C245C92640069BB8B /* MapView.swift */; };
+		1CD1FBAF245C92650069BB8B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9D245C92640069BB8B /* RootView.swift */; };
+		1CD1FBB0245C92650069BB8B /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9E245C92640069BB8B /* ActivityIndicator.swift */; };
+		1CD1FBB1245C92650069BB8B /* LocationCharacteristicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA0245C92640069BB8B /* LocationCharacteristicView.swift */; };
+		1CD1FBB2245C92650069BB8B /* VehicleActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA1245C92640069BB8B /* VehicleActionView.swift */; };
+		1CD1FBB3245C92650069BB8B /* DefaultCharacteristicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA2245C92650069BB8B /* DefaultCharacteristicView.swift */; };
+		1CD1FBB4245C92650069BB8B /* ActionCharacteristicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA3245C92650069BB8B /* ActionCharacteristicView.swift */; };
+		1CD1FBB5245C92650069BB8B /* TextureAtlasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA4245C92650069BB8B /* TextureAtlasView.swift */; };
+		1CD1FBB6245C92650069BB8B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA5245C92650069BB8B /* HeaderView.swift */; };
+		1CD1FBB7245C92650069BB8B /* PeripheralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA6245C92650069BB8B /* PeripheralView.swift */; };
+		1CD1FBB8245C92650069BB8B /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA7245C92650069BB8B /* LayoutView.swift */; };
+		1CD1FBB9245C92650069BB8B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA8245C92650069BB8B /* ContentView.swift */; };
+		1CD1FBBD245C92BB0069BB8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FBBC245C92BB0069BB8B /* Assets.xcassets */; };
+		1CD1FBC6245C93900069BB8B /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBBF245C93900069BB8B /* Vehicle.swift */; };
+		1CD1FBC7245C93900069BB8B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBC0245C93900069BB8B /* Extensions.swift */; };
+		1CD1FBC8245C93900069BB8B /* Vehicle+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBC1245C93900069BB8B /* Vehicle+Action.swift */; };
+		1CD1FBCA245C93900069BB8B /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBC3245C93900069BB8B /* Structs.swift */; };
+		1CD1FBCB245C93900069BB8B /* Vehicle+CB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBC4245C93900069BB8B /* Vehicle+CB.swift */; };
+		1CD1FBCC245C93900069BB8B /* DataCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBC5245C93900069BB8B /* DataCoding.swift */; };
+		1CD1FBDA245C93F30069BB8B /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBCE245C93F30069BB8B /* Peripheral.swift */; };
+		1CD1FBDB245C93F30069BB8B /* CBPeripheralDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBCF245C93F30069BB8B /* CBPeripheralDelegateWrapper.swift */; };
+		1CD1FBDC245C93F30069BB8B /* CBPeripheralManagerDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD0245C93F30069BB8B /* CBPeripheralManagerDelegateWrapper.swift */; };
+		1CD1FBDD245C93F30069BB8B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD1245C93F30069BB8B /* Service.swift */; };
+		1CD1FBDE245C93F30069BB8B /* Central.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD2245C93F30069BB8B /* Central.swift */; };
+		1CD1FBDF245C93F30069BB8B /* CBCentralManagerDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD3245C93F30069BB8B /* CBCentralManagerDelegateWrapper.swift */; };
+		1CD1FBE0245C93F30069BB8B /* Descriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD4245C93F30069BB8B /* Descriptor.swift */; };
+		1CD1FBE1245C93F30069BB8B /* CentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD5245C93F30069BB8B /* CentralManager.swift */; };
+		1CD1FBE3245C93F30069BB8B /* ScannedPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD7245C93F30069BB8B /* ScannedPeripheral.swift */; };
+		1CD1FBE4245C93F30069BB8B /* PeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD8245C93F30069BB8B /* PeripheralManager.swift */; };
+		1CD1FBE5245C93F30069BB8B /* Characteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD9245C93F30069BB8B /* Characteristic.swift */; };
+		1CD1FBEA245C94610069BB8B /* CL+DataCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBE7245C94610069BB8B /* CL+DataCodable.swift */; };
+		1CD1FBEB245C94610069BB8B /* CLLocationManagerDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBE8245C94610069BB8B /* CLLocationManagerDelegateWrapper.swift */; };
+		1CD1FBEC245C94610069BB8B /* CombineLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBE9245C94610069BB8B /* CombineLocation.swift */; };
+		1CD1FBEE245C948A0069BB8B /* LayoutContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBED245C948A0069BB8B /* LayoutContainer.swift */; };
+		1CD1FBF1245C953D0069BB8B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD1FBF0245C953D0069BB8B /* AVFoundation.framework */; };
+		1CD1FBF7245C955D0069BB8B /* unlock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FBF3245C955D0069BB8B /* unlock.mp3 */; };
+		1CD1FBF8245C955D0069BB8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FBF4245C955D0069BB8B /* Assets.xcassets */; };
+		1CD1FBF9245C955D0069BB8B /* horn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FBF5245C955D0069BB8B /* horn.wav */; };
+		1CD1FBFA245C955D0069BB8B /* lock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FBF6245C955D0069BB8B /* lock.mp3 */; };
+		1CD1FC02245C959A0069BB8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FC01245C959A0069BB8B /* AppDelegate.swift */; };
+		1CD1FC09245C959C0069BB8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FC08245C959C0069BB8B /* Preview Assets.xcassets */; };
+		1CD1FC0C245C959C0069BB8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FC0A245C959C0069BB8B /* Main.storyboard */; };
+		1CD1FC13245C95BE0069BB8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FC12245C95BE0069BB8B /* Assets.xcassets */; };
+		1CD1FC19245C96500069BB8B /* SelectedVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FC14245C964F0069BB8B /* SelectedVehicle.swift */; };
+		1CD1FC1A245C96500069BB8B /* HostContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FC15245C964F0069BB8B /* HostContentView.swift */; };
+		1CD1FC1D245C96500069BB8B /* ActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FC18245C96500069BB8B /* ActionsView.swift */; };
+		1CD1FC1E245C96970069BB8B /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBBF245C93900069BB8B /* Vehicle.swift */; };
+		1CD1FC23245C96970069BB8B /* Vehicle+CB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBC4245C93900069BB8B /* Vehicle+CB.swift */; };
+		1CD1FC24245C96970069BB8B /* DataCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBC5245C93900069BB8B /* DataCoding.swift */; };
+		1CD1FC25245C969B0069BB8B /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBCE245C93F30069BB8B /* Peripheral.swift */; };
+		1CD1FC26245C969B0069BB8B /* CBPeripheralDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBCF245C93F30069BB8B /* CBPeripheralDelegateWrapper.swift */; };
+		1CD1FC27245C969B0069BB8B /* CBPeripheralManagerDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD0245C93F30069BB8B /* CBPeripheralManagerDelegateWrapper.swift */; };
+		1CD1FC28245C969B0069BB8B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD1245C93F30069BB8B /* Service.swift */; };
+		1CD1FC29245C969B0069BB8B /* Central.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD2245C93F30069BB8B /* Central.swift */; };
+		1CD1FC2A245C969B0069BB8B /* CBCentralManagerDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD3245C93F30069BB8B /* CBCentralManagerDelegateWrapper.swift */; };
+		1CD1FC2B245C969B0069BB8B /* Descriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD4245C93F30069BB8B /* Descriptor.swift */; };
+		1CD1FC2C245C969B0069BB8B /* CentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD5245C93F30069BB8B /* CentralManager.swift */; };
+		1CD1FC2E245C969B0069BB8B /* ScannedPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD7245C93F30069BB8B /* ScannedPeripheral.swift */; };
+		1CD1FC2F245C969B0069BB8B /* PeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD8245C93F30069BB8B /* PeripheralManager.swift */; };
+		1CD1FC30245C969B0069BB8B /* Characteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBD9245C93F30069BB8B /* Characteristic.swift */; };
+		1CD1FC31245C96A20069BB8B /* CL+DataCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBE7245C94610069BB8B /* CL+DataCodable.swift */; };
+		1CD1FC32245C96A20069BB8B /* CLLocationManagerDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBE8245C94610069BB8B /* CLLocationManagerDelegateWrapper.swift */; };
+		1CD1FC33245C96A20069BB8B /* CombineLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBE9245C94610069BB8B /* CombineLocation.swift */; };
+		1CD1FC3B245C98440069BB8B /* Rivian_Data_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FC3A245C98440069BB8B /* Rivian_Data_Tests.swift */; };
+		1CD1FC42245C98610069BB8B /* DataCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBC5245C93900069BB8B /* DataCoding.swift */; };
+		1CD1FC43245C98F60069BB8B /* CL+DataCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBE7245C94610069BB8B /* CL+DataCodable.swift */; };
+		1CE8E538245C9ACE00A30DCB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9C245C92640069BB8B /* MapView.swift */; };
+		1CE8E539245C9AF600A30DCB /* TextureAtlasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA4245C92650069BB8B /* TextureAtlasView.swift */; };
+		1CE8E53A245C9B7600A30DCB /* VehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB98245C92640069BB8B /* VehicleView.swift */; };
+		1CE8E53B245C9B9E00A30DCB /* unlock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FBF3245C955D0069BB8B /* unlock.mp3 */; };
+		1CE8E53C245C9BA100A30DCB /* horn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FBF5245C955D0069BB8B /* horn.wav */; };
+		1CE8E53D245C9BA300A30DCB /* lock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FBF6245C955D0069BB8B /* lock.mp3 */; };
+		1CE8E53E245C9BB600A30DCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FBF4245C955D0069BB8B /* Assets.xcassets */; };
+		1CE8E53F245CA24D00A30DCB /* Vehicle+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBC1245C93900069BB8B /* Vehicle+Action.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1CD1FB81245C91B90069BB8B /* Rivian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rivian.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CD1FB84245C91B90069BB8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1CD1FB86245C91B90069BB8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1CD1FB8D245C91BB0069BB8B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1CD1FB90245C91BB0069BB8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1CD1FB92245C91BB0069BB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CD1FB97245C92640069BB8B /* ScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		1CD1FB98245C92640069BB8B /* VehicleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
+		1CD1FB99245C92640069BB8B /* CharacteristicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicView.swift; sourceTree = "<group>"; };
+		1CD1FB9A245C92640069BB8B /* ServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
+		1CD1FB9B245C92640069BB8B /* DescriptorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptorView.swift; sourceTree = "<group>"; };
+		1CD1FB9C245C92640069BB8B /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		1CD1FB9D245C92640069BB8B /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		1CD1FB9E245C92640069BB8B /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		1CD1FBA0245C92640069BB8B /* LocationCharacteristicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCharacteristicView.swift; sourceTree = "<group>"; };
+		1CD1FBA1245C92640069BB8B /* VehicleActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleActionView.swift; sourceTree = "<group>"; };
+		1CD1FBA2245C92650069BB8B /* DefaultCharacteristicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCharacteristicView.swift; sourceTree = "<group>"; };
+		1CD1FBA3245C92650069BB8B /* ActionCharacteristicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCharacteristicView.swift; sourceTree = "<group>"; };
+		1CD1FBA4245C92650069BB8B /* TextureAtlasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureAtlasView.swift; sourceTree = "<group>"; };
+		1CD1FBA5245C92650069BB8B /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		1CD1FBA6245C92650069BB8B /* PeripheralView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralView.swift; sourceTree = "<group>"; };
+		1CD1FBA7245C92650069BB8B /* LayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
+		1CD1FBA8245C92650069BB8B /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1CD1FBBC245C92BB0069BB8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CD1FBBF245C93900069BB8B /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		1CD1FBC0245C93900069BB8B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1CD1FBC1245C93900069BB8B /* Vehicle+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vehicle+Action.swift"; sourceTree = "<group>"; };
+		1CD1FBC3245C93900069BB8B /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		1CD1FBC4245C93900069BB8B /* Vehicle+CB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vehicle+CB.swift"; sourceTree = "<group>"; };
+		1CD1FBC5245C93900069BB8B /* DataCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCoding.swift; sourceTree = "<group>"; };
+		1CD1FBCE245C93F30069BB8B /* Peripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
+		1CD1FBCF245C93F30069BB8B /* CBPeripheralDelegateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBPeripheralDelegateWrapper.swift; sourceTree = "<group>"; };
+		1CD1FBD0245C93F30069BB8B /* CBPeripheralManagerDelegateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBPeripheralManagerDelegateWrapper.swift; sourceTree = "<group>"; };
+		1CD1FBD1245C93F30069BB8B /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		1CD1FBD2245C93F30069BB8B /* Central.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Central.swift; sourceTree = "<group>"; };
+		1CD1FBD3245C93F30069BB8B /* CBCentralManagerDelegateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBCentralManagerDelegateWrapper.swift; sourceTree = "<group>"; };
+		1CD1FBD4245C93F30069BB8B /* Descriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Descriptor.swift; sourceTree = "<group>"; };
+		1CD1FBD5245C93F30069BB8B /* CentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralManager.swift; sourceTree = "<group>"; };
+		1CD1FBD7245C93F30069BB8B /* ScannedPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannedPeripheral.swift; sourceTree = "<group>"; };
+		1CD1FBD8245C93F30069BB8B /* PeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralManager.swift; sourceTree = "<group>"; };
+		1CD1FBD9245C93F30069BB8B /* Characteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characteristic.swift; sourceTree = "<group>"; };
+		1CD1FBE7245C94610069BB8B /* CL+DataCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CL+DataCodable.swift"; sourceTree = "<group>"; };
+		1CD1FBE8245C94610069BB8B /* CLLocationManagerDelegateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationManagerDelegateWrapper.swift; sourceTree = "<group>"; };
+		1CD1FBE9245C94610069BB8B /* CombineLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineLocation.swift; sourceTree = "<group>"; };
+		1CD1FBED245C948A0069BB8B /* LayoutContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutContainer.swift; sourceTree = "<group>"; };
+		1CD1FBF0245C953D0069BB8B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		1CD1FBF3245C955D0069BB8B /* unlock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unlock.mp3; sourceTree = "<group>"; };
+		1CD1FBF4245C955D0069BB8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CD1FBF5245C955D0069BB8B /* horn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horn.wav; sourceTree = "<group>"; };
+		1CD1FBF6245C955D0069BB8B /* lock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lock.mp3; sourceTree = "<group>"; };
+		1CD1FBFF245C959A0069BB8B /* Rivian macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rivian macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CD1FC01245C959A0069BB8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1CD1FC08245C959C0069BB8B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1CD1FC0B245C959C0069BB8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1CD1FC0D245C959C0069BB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CD1FC0E245C959C0069BB8B /* Rivian_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rivian_macOS.entitlements; sourceTree = "<group>"; };
+		1CD1FC12245C95BE0069BB8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CD1FC14245C964F0069BB8B /* SelectedVehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedVehicle.swift; sourceTree = "<group>"; };
+		1CD1FC15245C964F0069BB8B /* HostContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostContentView.swift; sourceTree = "<group>"; };
+		1CD1FC18245C96500069BB8B /* ActionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsView.swift; sourceTree = "<group>"; };
+		1CD1FC38245C98440069BB8B /* Rivian Data Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rivian Data Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CD1FC3A245C98440069BB8B /* Rivian_Data_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rivian_Data_Tests.swift; sourceTree = "<group>"; };
+		1CD1FC3C245C98440069BB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CD1FB7E245C91B90069BB8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CD1FBF1245C953D0069BB8B /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CD1FBFC245C959A0069BB8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CD1FC35245C98440069BB8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
 		1CD1FB76245C916D0069BB8B = {
 			isa = PBXGroup;
 			children = (
+				1CD1FB83245C91B90069BB8B /* Rivian iOS */,
+				1CD1FC00245C959A0069BB8B /* Rivian macOS */,
+				1CD1FC39245C98440069BB8B /* Rivian Data Tests */,
+				1CD1FB82245C91B90069BB8B /* Products */,
+				1CD1FBEF245C953D0069BB8B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
+		1CD1FB82245C91B90069BB8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FB81245C91B90069BB8B /* Rivian.app */,
+				1CD1FBFF245C959A0069BB8B /* Rivian macOS.app */,
+				1CD1FC38245C98440069BB8B /* Rivian Data Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CD1FB83245C91B90069BB8B /* Rivian iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FB84245C91B90069BB8B /* AppDelegate.swift */,
+				1CD1FB86245C91B90069BB8B /* SceneDelegate.swift */,
+				1CD1FBBC245C92BB0069BB8B /* Assets.xcassets */,
+				1CD1FBBE245C93900069BB8B /* Data */,
+				1CD1FBCD245C93F30069BB8B /* CombineBluetooth */,
+				1CD1FBE6245C94610069BB8B /* CombineLocation */,
+				1CD1FBED245C948A0069BB8B /* LayoutContainer.swift */,
+				1CD1FBF2245C955D0069BB8B /* Shared Assets */,
+				1CD1FB96245C92640069BB8B /* Views */,
+				1CD1FB8F245C91BB0069BB8B /* LaunchScreen.storyboard */,
+				1CD1FB92245C91BB0069BB8B /* Info.plist */,
+				1CD1FB8C245C91BB0069BB8B /* Preview Content */,
+			);
+			path = "Rivian iOS";
+			sourceTree = "<group>";
+		};
+		1CD1FB8C245C91BB0069BB8B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FB8D245C91BB0069BB8B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1CD1FB96245C92640069BB8B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CE8E541245CD22500A30DCB /* Representables */,
+				1CD1FB97245C92640069BB8B /* ScannerView.swift */,
+				1CD1FB98245C92640069BB8B /* VehicleView.swift */,
+				1CD1FB99245C92640069BB8B /* CharacteristicView.swift */,
+				1CD1FB9A245C92640069BB8B /* ServiceView.swift */,
+				1CD1FB9B245C92640069BB8B /* DescriptorView.swift */,
+				1CD1FB9D245C92640069BB8B /* RootView.swift */,
+				1CD1FB9E245C92640069BB8B /* ActivityIndicator.swift */,
+				1CD1FB9F245C92640069BB8B /* Characteristics */,
+				1CD1FBA5245C92650069BB8B /* HeaderView.swift */,
+				1CD1FBA6245C92650069BB8B /* PeripheralView.swift */,
+				1CD1FBA7245C92650069BB8B /* LayoutView.swift */,
+				1CD1FBA8245C92650069BB8B /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1CD1FB9F245C92640069BB8B /* Characteristics */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FBA0245C92640069BB8B /* LocationCharacteristicView.swift */,
+				1CD1FBA1245C92640069BB8B /* VehicleActionView.swift */,
+				1CD1FBA2245C92650069BB8B /* DefaultCharacteristicView.swift */,
+				1CD1FBA3245C92650069BB8B /* ActionCharacteristicView.swift */,
+			);
+			path = Characteristics;
+			sourceTree = "<group>";
+		};
+		1CD1FBBE245C93900069BB8B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FBBF245C93900069BB8B /* Vehicle.swift */,
+				1CD1FBC0245C93900069BB8B /* Extensions.swift */,
+				1CD1FBC1245C93900069BB8B /* Vehicle+Action.swift */,
+				1CD1FBC3245C93900069BB8B /* Structs.swift */,
+				1CD1FBC4245C93900069BB8B /* Vehicle+CB.swift */,
+				1CD1FBC5245C93900069BB8B /* DataCoding.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1CD1FBCD245C93F30069BB8B /* CombineBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FBCE245C93F30069BB8B /* Peripheral.swift */,
+				1CD1FBCF245C93F30069BB8B /* CBPeripheralDelegateWrapper.swift */,
+				1CD1FBD0245C93F30069BB8B /* CBPeripheralManagerDelegateWrapper.swift */,
+				1CD1FBD1245C93F30069BB8B /* Service.swift */,
+				1CD1FBD2245C93F30069BB8B /* Central.swift */,
+				1CD1FBD3245C93F30069BB8B /* CBCentralManagerDelegateWrapper.swift */,
+				1CD1FBD4245C93F30069BB8B /* Descriptor.swift */,
+				1CD1FBD5245C93F30069BB8B /* CentralManager.swift */,
+				1CD1FBD7245C93F30069BB8B /* ScannedPeripheral.swift */,
+				1CD1FBD8245C93F30069BB8B /* PeripheralManager.swift */,
+				1CD1FBD9245C93F30069BB8B /* Characteristic.swift */,
+			);
+			path = CombineBluetooth;
+			sourceTree = "<group>";
+		};
+		1CD1FBE6245C94610069BB8B /* CombineLocation */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FBE7245C94610069BB8B /* CL+DataCodable.swift */,
+				1CD1FBE8245C94610069BB8B /* CLLocationManagerDelegateWrapper.swift */,
+				1CD1FBE9245C94610069BB8B /* CombineLocation.swift */,
+			);
+			path = CombineLocation;
+			sourceTree = "<group>";
+		};
+		1CD1FBEF245C953D0069BB8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FBF0245C953D0069BB8B /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1CD1FBF2245C955D0069BB8B /* Shared Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FBF3245C955D0069BB8B /* unlock.mp3 */,
+				1CD1FBF4245C955D0069BB8B /* Assets.xcassets */,
+				1CD1FBF5245C955D0069BB8B /* horn.wav */,
+				1CD1FBF6245C955D0069BB8B /* lock.mp3 */,
+			);
+			path = "Shared Assets";
+			sourceTree = "<group>";
+		};
+		1CD1FC00245C959A0069BB8B /* Rivian macOS */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FC01245C959A0069BB8B /* AppDelegate.swift */,
+				1CD1FC0A245C959C0069BB8B /* Main.storyboard */,
+				1CE8E537245C9A5D00A30DCB /* Views */,
+				1CD1FC12245C95BE0069BB8B /* Assets.xcassets */,
+				1CD1FC0D245C959C0069BB8B /* Info.plist */,
+				1CD1FC0E245C959C0069BB8B /* Rivian_macOS.entitlements */,
+				1CD1FC07245C959C0069BB8B /* Preview Content */,
+			);
+			path = "Rivian macOS";
+			sourceTree = "<group>";
+		};
+		1CD1FC07245C959C0069BB8B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FC08245C959C0069BB8B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1CD1FC39245C98440069BB8B /* Rivian Data Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FC3A245C98440069BB8B /* Rivian_Data_Tests.swift */,
+				1CD1FC3C245C98440069BB8B /* Info.plist */,
+			);
+			path = "Rivian Data Tests";
+			sourceTree = "<group>";
+		};
+		1CE8E537245C9A5D00A30DCB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FC18245C96500069BB8B /* ActionsView.swift */,
+				1CD1FC15245C964F0069BB8B /* HostContentView.swift */,
+				1CD1FC14245C964F0069BB8B /* SelectedVehicle.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1CE8E541245CD22500A30DCB /* Representables */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FB9C245C92640069BB8B /* MapView.swift */,
+				1CD1FBA4245C92650069BB8B /* TextureAtlasView.swift */,
+			);
+			path = Representables;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CD1FB80245C91B90069BB8B /* Rivian iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CD1FB93245C91BB0069BB8B /* Build configuration list for PBXNativeTarget "Rivian iOS" */;
+			buildPhases = (
+				1CD1FB7D245C91B90069BB8B /* Sources */,
+				1CD1FB7E245C91B90069BB8B /* Frameworks */,
+				1CD1FB7F245C91B90069BB8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Rivian iOS";
+			productName = "Rivian iOS";
+			productReference = 1CD1FB81245C91B90069BB8B /* Rivian.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1CD1FBFE245C959A0069BB8B /* Rivian macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CD1FC0F245C959C0069BB8B /* Build configuration list for PBXNativeTarget "Rivian macOS" */;
+			buildPhases = (
+				1CD1FBFB245C959A0069BB8B /* Sources */,
+				1CD1FBFC245C959A0069BB8B /* Frameworks */,
+				1CD1FBFD245C959A0069BB8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Rivian macOS";
+			productName = "Rivian macOS";
+			productReference = 1CD1FBFF245C959A0069BB8B /* Rivian macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1CD1FC37245C98440069BB8B /* Rivian Data Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CD1FC3D245C98440069BB8B /* Build configuration list for PBXNativeTarget "Rivian Data Tests" */;
+			buildPhases = (
+				1CD1FC34245C98440069BB8B /* Sources */,
+				1CD1FC35245C98440069BB8B /* Frameworks */,
+				1CD1FC36245C98440069BB8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Rivian Data Tests";
+			productName = "Rivian Data Tests";
+			productReference = 1CD1FC38245C98440069BB8B /* Rivian Data Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		1CD1FB77245C916D0069BB8B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1140;
+				TargetAttributes = {
+					1CD1FB80245C91B90069BB8B = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					1CD1FBFE245C959A0069BB8B = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					1CD1FC37245C98440069BB8B = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
 			};
 			buildConfigurationList = 1CD1FB7A245C916D0069BB8B /* Build configuration list for PBXProject "Rivian Job Application" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -30,12 +456,165 @@
 				Base,
 			);
 			mainGroup = 1CD1FB76245C916D0069BB8B;
+			productRefGroup = 1CD1FB82245C91B90069BB8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				1CD1FB80245C91B90069BB8B /* Rivian iOS */,
+				1CD1FBFE245C959A0069BB8B /* Rivian macOS */,
+				1CD1FC37245C98440069BB8B /* Rivian Data Tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CD1FB7F245C91B90069BB8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CD1FBF7245C955D0069BB8B /* unlock.mp3 in Resources */,
+				1CD1FB91245C91BB0069BB8B /* LaunchScreen.storyboard in Resources */,
+				1CD1FBFA245C955D0069BB8B /* lock.mp3 in Resources */,
+				1CD1FBBD245C92BB0069BB8B /* Assets.xcassets in Resources */,
+				1CD1FBF9245C955D0069BB8B /* horn.wav in Resources */,
+				1CD1FB8E245C91BB0069BB8B /* Preview Assets.xcassets in Resources */,
+				1CD1FBF8245C955D0069BB8B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CD1FBFD245C959A0069BB8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CE8E53C245C9BA100A30DCB /* horn.wav in Resources */,
+				1CE8E53B245C9B9E00A30DCB /* unlock.mp3 in Resources */,
+				1CD1FC0C245C959C0069BB8B /* Main.storyboard in Resources */,
+				1CD1FC13245C95BE0069BB8B /* Assets.xcassets in Resources */,
+				1CE8E53E245C9BB600A30DCB /* Assets.xcassets in Resources */,
+				1CD1FC09245C959C0069BB8B /* Preview Assets.xcassets in Resources */,
+				1CE8E53D245C9BA300A30DCB /* lock.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CD1FC36245C98440069BB8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CD1FB7D245C91B90069BB8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CD1FBEB245C94610069BB8B /* CLLocationManagerDelegateWrapper.swift in Sources */,
+				1CD1FBCA245C93900069BB8B /* Structs.swift in Sources */,
+				1CD1FBDA245C93F30069BB8B /* Peripheral.swift in Sources */,
+				1CD1FBB4245C92650069BB8B /* ActionCharacteristicView.swift in Sources */,
+				1CD1FB85245C91B90069BB8B /* AppDelegate.swift in Sources */,
+				1CD1FBB5245C92650069BB8B /* TextureAtlasView.swift in Sources */,
+				1CD1FBDF245C93F30069BB8B /* CBCentralManagerDelegateWrapper.swift in Sources */,
+				1CD1FBE5245C93F30069BB8B /* Characteristic.swift in Sources */,
+				1CD1FBB8245C92650069BB8B /* LayoutView.swift in Sources */,
+				1CD1FBC8245C93900069BB8B /* Vehicle+Action.swift in Sources */,
+				1CD1FBE4245C93F30069BB8B /* PeripheralManager.swift in Sources */,
+				1CD1FBEA245C94610069BB8B /* CL+DataCodable.swift in Sources */,
+				1CD1FBEE245C948A0069BB8B /* LayoutContainer.swift in Sources */,
+				1CD1FBAD245C92650069BB8B /* DescriptorView.swift in Sources */,
+				1CD1FBB2245C92650069BB8B /* VehicleActionView.swift in Sources */,
+				1CD1FBB9245C92650069BB8B /* ContentView.swift in Sources */,
+				1CD1FBDB245C93F30069BB8B /* CBPeripheralDelegateWrapper.swift in Sources */,
+				1CD1FBA9245C92650069BB8B /* ScannerView.swift in Sources */,
+				1CD1FBEC245C94610069BB8B /* CombineLocation.swift in Sources */,
+				1CD1FBC6245C93900069BB8B /* Vehicle.swift in Sources */,
+				1CD1FBB6245C92650069BB8B /* HeaderView.swift in Sources */,
+				1CD1FBAC245C92650069BB8B /* ServiceView.swift in Sources */,
+				1CD1FBB7245C92650069BB8B /* PeripheralView.swift in Sources */,
+				1CD1FBDD245C93F30069BB8B /* Service.swift in Sources */,
+				1CD1FBDC245C93F30069BB8B /* CBPeripheralManagerDelegateWrapper.swift in Sources */,
+				1CD1FBE0245C93F30069BB8B /* Descriptor.swift in Sources */,
+				1CD1FBB3245C92650069BB8B /* DefaultCharacteristicView.swift in Sources */,
+				1CD1FBE3245C93F30069BB8B /* ScannedPeripheral.swift in Sources */,
+				1CD1FBCB245C93900069BB8B /* Vehicle+CB.swift in Sources */,
+				1CD1FBC7245C93900069BB8B /* Extensions.swift in Sources */,
+				1CD1FBAF245C92650069BB8B /* RootView.swift in Sources */,
+				1CD1FBB0245C92650069BB8B /* ActivityIndicator.swift in Sources */,
+				1CD1FB87245C91B90069BB8B /* SceneDelegate.swift in Sources */,
+				1CD1FBAB245C92650069BB8B /* CharacteristicView.swift in Sources */,
+				1CD1FBB1245C92650069BB8B /* LocationCharacteristicView.swift in Sources */,
+				1CD1FBDE245C93F30069BB8B /* Central.swift in Sources */,
+				1CD1FBAA245C92650069BB8B /* VehicleView.swift in Sources */,
+				1CD1FBE1245C93F30069BB8B /* CentralManager.swift in Sources */,
+				1CD1FBAE245C92650069BB8B /* MapView.swift in Sources */,
+				1CD1FBCC245C93900069BB8B /* DataCoding.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CD1FBFB245C959A0069BB8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CE8E53A245C9B7600A30DCB /* VehicleView.swift in Sources */,
+				1CD1FC2F245C969B0069BB8B /* PeripheralManager.swift in Sources */,
+				1CD1FC29245C969B0069BB8B /* Central.swift in Sources */,
+				1CD1FC1E245C96970069BB8B /* Vehicle.swift in Sources */,
+				1CD1FC24245C96970069BB8B /* DataCoding.swift in Sources */,
+				1CD1FC2C245C969B0069BB8B /* CentralManager.swift in Sources */,
+				1CD1FC1A245C96500069BB8B /* HostContentView.swift in Sources */,
+				1CD1FC31245C96A20069BB8B /* CL+DataCodable.swift in Sources */,
+				1CD1FC28245C969B0069BB8B /* Service.swift in Sources */,
+				1CD1FC30245C969B0069BB8B /* Characteristic.swift in Sources */,
+				1CD1FC2B245C969B0069BB8B /* Descriptor.swift in Sources */,
+				1CD1FC2E245C969B0069BB8B /* ScannedPeripheral.swift in Sources */,
+				1CD1FC1D245C96500069BB8B /* ActionsView.swift in Sources */,
+				1CD1FC32245C96A20069BB8B /* CLLocationManagerDelegateWrapper.swift in Sources */,
+				1CD1FC23245C96970069BB8B /* Vehicle+CB.swift in Sources */,
+				1CD1FC33245C96A20069BB8B /* CombineLocation.swift in Sources */,
+				1CD1FC27245C969B0069BB8B /* CBPeripheralManagerDelegateWrapper.swift in Sources */,
+				1CD1FC25245C969B0069BB8B /* Peripheral.swift in Sources */,
+				1CD1FC26245C969B0069BB8B /* CBPeripheralDelegateWrapper.swift in Sources */,
+				1CE8E538245C9ACE00A30DCB /* MapView.swift in Sources */,
+				1CD1FC19245C96500069BB8B /* SelectedVehicle.swift in Sources */,
+				1CD1FC2A245C969B0069BB8B /* CBCentralManagerDelegateWrapper.swift in Sources */,
+				1CD1FC02245C959A0069BB8B /* AppDelegate.swift in Sources */,
+				1CE8E53F245CA24D00A30DCB /* Vehicle+Action.swift in Sources */,
+				1CE8E539245C9AF600A30DCB /* TextureAtlasView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CD1FC34245C98440069BB8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CD1FC43245C98F60069BB8B /* CL+DataCodable.swift in Sources */,
+				1CD1FC42245C98610069BB8B /* DataCoding.swift in Sources */,
+				1CD1FC3B245C98440069BB8B /* Rivian_Data_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1CD1FB8F245C91BB0069BB8B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CD1FB90245C91BB0069BB8B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1CD1FC0A245C959C0069BB8B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CD1FC0B245C959C0069BB8B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1CD1FB7B245C916D0069BB8B /* Debug */ = {
@@ -50,6 +629,430 @@
 			};
 			name = Release;
 		};
+		1CD1FB94245C91BB0069BB8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "\"Rivian iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = N2V9KYH4KN;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Rivian iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elislade.Rivian-iOS";
+				PRODUCT_NAME = Rivian;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1CD1FB95245C91BB0069BB8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "\"Rivian iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = N2V9KYH4KN;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Rivian iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elislade.Rivian-iOS";
+				PRODUCT_NAME = Rivian;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1CD1FC10245C959C0069BB8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Rivian macOS/Rivian_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "\"Rivian macOS/Preview Content\"";
+				DEVELOPMENT_TEAM = N2V9KYH4KN;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Rivian macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elislade.Rivian-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1CD1FC11245C959C0069BB8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Rivian macOS/Rivian_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "\"Rivian macOS/Preview Content\"";
+				DEVELOPMENT_TEAM = N2V9KYH4KN;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Rivian macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elislade.Rivian-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		1CD1FC3E245C98440069BB8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = N2V9KYH4KN;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Rivian Data Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elislade.Rivian-Data-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1CD1FC3F245C98440069BB8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = N2V9KYH4KN;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Rivian Data Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elislade.Rivian-Data-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -58,6 +1061,33 @@
 			buildConfigurations = (
 				1CD1FB7B245C916D0069BB8B /* Debug */,
 				1CD1FB7C245C916D0069BB8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CD1FB93245C91BB0069BB8B /* Build configuration list for PBXNativeTarget "Rivian iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CD1FB94245C91BB0069BB8B /* Debug */,
+				1CD1FB95245C91BB0069BB8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CD1FC0F245C959C0069BB8B /* Build configuration list for PBXNativeTarget "Rivian macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CD1FC10245C959C0069BB8B /* Debug */,
+				1CD1FC11245C959C0069BB8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CD1FC3D245C98440069BB8B /* Build configuration list for PBXNativeTarget "Rivian Data Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CD1FC3E245C98440069BB8B /* Debug */,
+				1CD1FC3F245C98440069BB8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
