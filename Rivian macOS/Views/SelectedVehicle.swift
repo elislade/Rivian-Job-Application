@@ -3,9 +3,9 @@ import CoreBluetooth
 
 struct SelectedVehicle: View {
     
-    @EnvironmentObject var btManager:PeripheralManager
-    @EnvironmentObject var locManager:Location
-    @Binding var vehicle:Vehicle
+    @EnvironmentObject private var btManager: PeripheralManager
+    @EnvironmentObject private var locManager: Location
+    @ObservedObject var vehicle: Vehicle
 
     func addServices() {
         let s = CBMutableService.main(for: vehicle)
@@ -44,38 +44,28 @@ struct SelectedVehicle: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            HStack {
-                Text(vehicle.name + " Vehicle").font(.headline).fontWeight(.semibold)
-                Spacer()
-                
-                if vehicle.isAdvert {
-                    Button("Stop Advert", action: stopAdvertise)
-                } else {
-                    Button("Advertise", action: advertise)
-                }
-                
-                if vehicle.isSetup {
-                    Button("Remove Services", action: removeServices)
-                } else {
-                    Button("Add Services", action: addServices)
-                }
+            if locManager.location != nil {
+                MapView(anno: locManager.location!)
+                    .cornerRadius(5)
+                    .overlay(Button("Send Location", action: sendLocation).padding(5), alignment: .topTrailing)
             }
-            .padding(.horizontal)
-            .frame(height: 50)
-            .background(Color.white)
             
-            Divider()
-            
-            Group {
-                if locManager.location != nil {
-                    MapView(anno: locManager.location!)
-                        .cornerRadius(5)
-                        .overlay(Button("Send Location", action: sendLocation).padding(5), alignment: .topTrailing)
-                }
-                
-                ActionsView(actions: $vehicle.actions).environmentObject(vehicle)
-            }.padding()
+            ActionsView(vehicle: vehicle, actions: vehicle.actions)
         }
+        .navigationTitle(vehicle.name)
+        .toolbar(content: {
+            if vehicle.isAdvert {
+                Button("Stop Advert", action: stopAdvertise)
+            } else {
+                Button("Advertise", action: advertise)
+            }
+            
+            if vehicle.isSetup {
+                Button("Remove Services", action: removeServices)
+            } else {
+                Button("Add Services", action: addServices)
+            }
+        })
         .onAppear {
             self.btManager.reqValue = { char_id in
                 guard
@@ -98,7 +88,7 @@ struct SelectedVehicle: View {
 
 struct SelectedVehicle_Previews: PreviewProvider {
     static var previews: some View {
-        SelectedVehicle(vehicle: .constant(.r1s))
+        SelectedVehicle(vehicle: .r1s)
             .environmentObject(PeripheralManager())
             .environmentObject(Location())
             .frame(width: 400, height: 600)

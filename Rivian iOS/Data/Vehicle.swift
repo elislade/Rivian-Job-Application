@@ -1,11 +1,11 @@
 import Foundation
 import AVFoundation
 
-class Vehicle:ObservableObject {
+class Vehicle: ObservableObject {
     
-    let name:String
-    let uuidString:String
-    let imageName:String
+    let name: String
+    let uuidString: String
+    let imageName: String
     
     init(name:String, uuidString:String, imageName:String){
         self.name = name
@@ -15,7 +15,7 @@ class Vehicle:ObservableObject {
     
     @Published var isSetup = false
     @Published var isAdvert = false
-    @Published var actions:[Vehicle.Action] = []
+    @Published var actions: [Vehicle.Action] = []
     
     var honkPlayer:AVAudioPlayer? = AVAudioPlayer()
     var lockPlayer:AVAudioPlayer? = AVAudioPlayer()

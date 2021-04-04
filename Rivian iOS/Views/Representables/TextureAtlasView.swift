@@ -57,7 +57,7 @@ final class AtlasTexture {
             node.run(SKAction.animate(with: frames, timePerFrame: 0.04), completion: {
                 self.isAnimating = false
                 self.currentComplete = self.targetComplete
-                })
+            })
         } else {
             node.run(SKAction.setTexture(textures[targetFrame]), completion: {
                 self.currentComplete = self.targetComplete

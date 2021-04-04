@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CA6C044261A47740037E6D4 /* RivianHostApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA6C043261A47740037E6D4 /* RivianHostApp.swift */; };
 		1CD1FB85245C91B90069BB8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB84245C91B90069BB8B /* AppDelegate.swift */; };
 		1CD1FB87245C91B90069BB8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB86245C91B90069BB8B /* SceneDelegate.swift */; };
 		1CD1FB8E245C91BB0069BB8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FB8D245C91BB0069BB8B /* Preview Assets.xcassets */; };
@@ -55,9 +56,7 @@
 		1CD1FBF8245C955D0069BB8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FBF4245C955D0069BB8B /* Assets.xcassets */; };
 		1CD1FBF9245C955D0069BB8B /* horn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FBF5245C955D0069BB8B /* horn.wav */; };
 		1CD1FBFA245C955D0069BB8B /* lock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FBF6245C955D0069BB8B /* lock.mp3 */; };
-		1CD1FC02245C959A0069BB8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FC01245C959A0069BB8B /* AppDelegate.swift */; };
 		1CD1FC09245C959C0069BB8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FC08245C959C0069BB8B /* Preview Assets.xcassets */; };
-		1CD1FC0C245C959C0069BB8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FC0A245C959C0069BB8B /* Main.storyboard */; };
 		1CD1FC13245C95BE0069BB8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FC12245C95BE0069BB8B /* Assets.xcassets */; };
 		1CD1FC19245C96500069BB8B /* SelectedVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FC14245C964F0069BB8B /* SelectedVehicle.swift */; };
 		1CD1FC1A245C96500069BB8B /* HostContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FC15245C964F0069BB8B /* HostContentView.swift */; };
@@ -93,6 +92,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CA6C043261A47740037E6D4 /* RivianHostApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RivianHostApp.swift; sourceTree = "<group>"; };
 		1CD1FB81245C91B90069BB8B /* Rivian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rivian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD1FB84245C91B90069BB8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CD1FB86245C91B90069BB8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,10 +143,8 @@
 		1CD1FBF4245C955D0069BB8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CD1FBF5245C955D0069BB8B /* horn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horn.wav; sourceTree = "<group>"; };
 		1CD1FBF6245C955D0069BB8B /* lock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lock.mp3; sourceTree = "<group>"; };
-		1CD1FBFF245C959A0069BB8B /* Rivian macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rivian macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1CD1FC01245C959A0069BB8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1CD1FBFF245C959A0069BB8B /* Rivian Host.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rivian Host.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD1FC08245C959C0069BB8B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1CD1FC0B245C959C0069BB8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CD1FC0D245C959C0069BB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CD1FC0E245C959C0069BB8B /* Rivian_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rivian_macOS.entitlements; sourceTree = "<group>"; };
 		1CD1FC12245C95BE0069BB8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,9 +182,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CA6C03C261A46FC0037E6D4 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FBE6245C94610069BB8B /* CombineLocation */,
+				1CD1FBCD245C93F30069BB8B /* CombineBluetooth */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		1CD1FB76245C916D0069BB8B = {
 			isa = PBXGroup;
 			children = (
+				1CA6C03C261A46FC0037E6D4 /* Shared */,
 				1CD1FB83245C91B90069BB8B /* Rivian iOS */,
 				1CD1FC00245C959A0069BB8B /* Rivian macOS */,
 				1CD1FC39245C98440069BB8B /* Rivian Data Tests */,
@@ -199,7 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				1CD1FB81245C91B90069BB8B /* Rivian.app */,
-				1CD1FBFF245C959A0069BB8B /* Rivian macOS.app */,
+				1CD1FBFF245C959A0069BB8B /* Rivian Host.app */,
 				1CD1FC38245C98440069BB8B /* Rivian Data Tests.xctest */,
 			);
 			name = Products;
@@ -212,8 +220,6 @@
 				1CD1FB86245C91B90069BB8B /* SceneDelegate.swift */,
 				1CD1FBBC245C92BB0069BB8B /* Assets.xcassets */,
 				1CD1FBBE245C93900069BB8B /* Data */,
-				1CD1FBCD245C93F30069BB8B /* CombineBluetooth */,
-				1CD1FBE6245C94610069BB8B /* CombineLocation */,
 				1CD1FBED245C948A0069BB8B /* LayoutContainer.swift */,
 				1CD1FBF2245C955D0069BB8B /* Shared Assets */,
 				1CD1FB96245C92640069BB8B /* Views */,
@@ -326,8 +332,7 @@
 		1CD1FC00245C959A0069BB8B /* Rivian macOS */ = {
 			isa = PBXGroup;
 			children = (
-				1CD1FC01245C959A0069BB8B /* AppDelegate.swift */,
-				1CD1FC0A245C959C0069BB8B /* Main.storyboard */,
+				1CA6C043261A47740037E6D4 /* RivianHostApp.swift */,
 				1CE8E537245C9A5D00A30DCB /* Views */,
 				1CD1FC12245C95BE0069BB8B /* Assets.xcassets */,
 				1CD1FC0D245C959C0069BB8B /* Info.plist */,
@@ -357,9 +362,9 @@
 		1CE8E537245C9A5D00A30DCB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1CD1FC18245C96500069BB8B /* ActionsView.swift */,
 				1CD1FC15245C964F0069BB8B /* HostContentView.swift */,
 				1CD1FC14245C964F0069BB8B /* SelectedVehicle.swift */,
+				1CD1FC18245C96500069BB8B /* ActionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -407,7 +412,7 @@
 			);
 			name = "Rivian macOS";
 			productName = "Rivian macOS";
-			productReference = 1CD1FBFF245C959A0069BB8B /* Rivian macOS.app */;
+			productReference = 1CD1FBFF245C959A0069BB8B /* Rivian Host.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1CD1FC37245C98440069BB8B /* Rivian Data Tests */ = {
@@ -488,7 +493,6 @@
 			files = (
 				1CE8E53C245C9BA100A30DCB /* horn.wav in Resources */,
 				1CE8E53B245C9B9E00A30DCB /* unlock.mp3 in Resources */,
-				1CD1FC0C245C959C0069BB8B /* Main.storyboard in Resources */,
 				1CD1FC13245C95BE0069BB8B /* Assets.xcassets in Resources */,
 				1CE8E53E245C9BB600A30DCB /* Assets.xcassets in Resources */,
 				1CD1FC09245C959C0069BB8B /* Preview Assets.xcassets in Resources */,
@@ -563,6 +567,7 @@
 				1CD1FC1E245C96970069BB8B /* Vehicle.swift in Sources */,
 				1CD1FC24245C96970069BB8B /* DataCoding.swift in Sources */,
 				1CD1FC2C245C969B0069BB8B /* CentralManager.swift in Sources */,
+				1CA6C044261A47740037E6D4 /* RivianHostApp.swift in Sources */,
 				1CD1FC1A245C96500069BB8B /* HostContentView.swift in Sources */,
 				1CD1FC31245C96A20069BB8B /* CL+DataCodable.swift in Sources */,
 				1CD1FC28245C969B0069BB8B /* Service.swift in Sources */,
@@ -579,7 +584,6 @@
 				1CE8E538245C9ACE00A30DCB /* MapView.swift in Sources */,
 				1CD1FC19245C96500069BB8B /* SelectedVehicle.swift in Sources */,
 				1CD1FC2A245C969B0069BB8B /* CBCentralManagerDelegateWrapper.swift in Sources */,
-				1CD1FC02245C959A0069BB8B /* AppDelegate.swift in Sources */,
 				1CE8E53F245CA24D00A30DCB /* Vehicle+Action.swift in Sources */,
 				1CE8E539245C9AF600A30DCB /* TextureAtlasView.swift in Sources */,
 			);
@@ -604,14 +608,6 @@
 				1CD1FB90245C91BB0069BB8B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		1CD1FC0A245C959C0069BB8B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1CD1FC0B245C959C0069BB8B /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -693,7 +689,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.elislade.Rivian-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elislade.RivianClient;
 				PRODUCT_NAME = Rivian;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -760,7 +756,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.elislade.Rivian-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elislade.RivianClient;
 				PRODUCT_NAME = Rivian;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -834,12 +830,12 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.elislade.Rivian-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elislade.RivianHost;
+				PRODUCT_NAME = "Rivian Host";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -904,11 +900,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.elislade.Rivian-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elislade.RivianHost;
+				PRODUCT_NAME = "Rivian Host";
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
