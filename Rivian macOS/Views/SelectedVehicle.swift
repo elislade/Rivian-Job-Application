@@ -80,7 +80,7 @@ struct SelectedVehicle: View {
         perform: {
             if let action = Vehicle.Action($0.data) {
                 self.vehicle.actions.append(action)
-                self.vehicle.playAudio(for: action)
+                AudioManager.shared?.playAudio(for: action)
             }
         })
     }

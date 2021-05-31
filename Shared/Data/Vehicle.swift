@@ -16,28 +16,6 @@ class Vehicle: ObservableObject {
     @Published var isSetup = false
     @Published var isAdvert = false
     @Published var actions: [Vehicle.Action] = []
-    
-    var honkPlayer:AVAudioPlayer? = AVAudioPlayer()
-    var lockPlayer:AVAudioPlayer? = AVAudioPlayer()
-    var unlockPlayer:AVAudioPlayer? = AVAudioPlayer()
-    
-    private let players:[Action: AVAudioPlayer] = [
-        .honk : try! AVAudioPlayer(
-            contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "horn", ofType: "wav")! )
-        ),
-        .lock : try! AVAudioPlayer(
-            contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "lock", ofType: "mp3")! )
-        ),
-        .unlock : try! AVAudioPlayer(
-            contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "unlock", ofType: "mp3")! )
-        )
-    ]
-    
-    func playAudio(for action:Vehicle.Action) {
-        players[action]?.pause()
-        players[action]?.currentTime = 0
-        players[action]?.play()
-    }
 }
 
 

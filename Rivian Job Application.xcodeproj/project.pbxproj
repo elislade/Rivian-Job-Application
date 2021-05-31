@@ -91,6 +91,8 @@
 		1CE8E53F245CA24D00A30DCB /* Vehicle+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBC1245C93900069BB8B /* Vehicle+Action.swift */; };
 		1CF1201D26646F9900A36986 /* AtlasSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1201C26646F9900A36986 /* AtlasSKNode.swift */; };
 		1CF1201E26646F9900A36986 /* AtlasSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1201C26646F9900A36986 /* AtlasSKNode.swift */; };
+		1CF1202026647D2300A36986 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1201F26647D2300A36986 /* AudioManager.swift */; };
+		1CF1202126647D2300A36986 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1201F26647D2300A36986 /* AudioManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +159,7 @@
 		1CD1FC3A245C98440069BB8B /* Rivian_Data_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rivian_Data_Tests.swift; sourceTree = "<group>"; };
 		1CD1FC3C245C98440069BB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CF1201C26646F9900A36986 /* AtlasSKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasSKNode.swift; sourceTree = "<group>"; };
+		1CF1201F26647D2300A36986 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +281,7 @@
 		1CD1FBBE245C93900069BB8B /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				1CF1201F26647D2300A36986 /* AudioManager.swift */,
 				1CD1FBBF245C93900069BB8B /* Vehicle.swift */,
 				1CD1FBC0245C93900069BB8B /* Extensions.swift */,
 				1CD1FBC1245C93900069BB8B /* Vehicle+Action.swift */,
@@ -546,6 +550,7 @@
 				1CD1FB87245C91B90069BB8B /* SceneDelegate.swift in Sources */,
 				1CD1FBAB245C92650069BB8B /* CharacteristicView.swift in Sources */,
 				1CD1FBB1245C92650069BB8B /* LocationCharacteristicView.swift in Sources */,
+				1CF1202026647D2300A36986 /* AudioManager.swift in Sources */,
 				1CD1FBDE245C93F30069BB8B /* Central.swift in Sources */,
 				1CD1FBAA245C92650069BB8B /* VehicleView.swift in Sources */,
 				1CD1FBE1245C93F30069BB8B /* CentralManager.swift in Sources */,
@@ -582,6 +587,7 @@
 				1CE8E538245C9ACE00A30DCB /* MapView.swift in Sources */,
 				1CD1FC19245C96500069BB8B /* SelectedVehicle.swift in Sources */,
 				1CD1FC2A245C969B0069BB8B /* CBCentralManagerDelegateWrapper.swift in Sources */,
+				1CF1202126647D2300A36986 /* AudioManager.swift in Sources */,
 				1CE8E53F245CA24D00A30DCB /* Vehicle+Action.swift in Sources */,
 				1CE8E539245C9AF600A30DCB /* TextureAtlasView.swift in Sources */,
 			);
