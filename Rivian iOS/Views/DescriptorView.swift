@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct DescriptorView: View {
-    @ObservedObject var desc:Descriptor
+    
+    let desc: Descriptor
     
     var body: some View {
         VStack {

@@ -3,9 +3,9 @@ import CoreBluetooth
 
 struct ScannerView: View {
     
-    @EnvironmentObject var central:CentralManager
-    @Binding var selectedPeripheral:Peripheral?
-    @Binding var selectedVehicle:Vehicle
+    @EnvironmentObject var central: CentralManager
+    @Binding var selectedPeripheral: Peripheral?
+    @Binding var selectedVehicle: Vehicle
     
     func scan() {
         self.central.scanForPeripherals(
@@ -45,7 +45,7 @@ struct ScannerView: View {
                                         Text(c.peripheral.name).font(.footnote).opacity(0.6)
                                         
                                         if c.asVehicle() != nil {
-                                            VehicleView(vehicle: .constant(c.asVehicle()!))
+                                            VehicleView(vehicle: c.asVehicle()!)
                                         }
                                     }
                                     

@@ -2,12 +2,12 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var proxy:GeometryProxy
-    @State var selectedPeripheral:Peripheral?
-    @State var selectedVehicle:Vehicle = .r1s
-    @State var vehicles:[Vehicle] = [.r1t, .r1s]
+    let proxy: GeometryProxy
+    @State private var selectedPeripheral: Peripheral?
+    @State private var selectedVehicle: Vehicle = .r1s
+    let vehicles: [Vehicle] = [.r1t, .r1s]
     
-    @Binding var axis:Axis
+    let axis: Axis
     
     func radius(_ proxy:GeometryProxy) -> CGFloat {
         return 8
@@ -32,7 +32,7 @@ struct ContentView: View {
     
     var body: some View {
         Group {
-            LayoutView($axis) {
+            LayoutView(axis) {
                 VStack(spacing:0) {
                     HeaderView().zIndex(10)
                     ScannerView(selectedPeripheral: $selectedPeripheral, selectedVehicle:$selectedVehicle)
@@ -61,7 +61,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader {
-            ContentView(proxy: $0, axis: .constant(.horizontal))
+            ContentView(proxy: $0, axis: .horizontal)
         }
     }
 }

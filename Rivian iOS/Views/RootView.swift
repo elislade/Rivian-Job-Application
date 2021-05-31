@@ -2,9 +2,8 @@ import SwiftUI
 
 struct RootView: View {
     
-    func axis(from size:CGSize) -> Binding<Axis> {
-        let a:Axis = size.width > size.height ? .horizontal : .vertical
-        return .constant(a)
+    func axis(from size: CGSize) -> Axis {
+        size.width > size.height ? .horizontal : .vertical
     }
     
     var body: some View {

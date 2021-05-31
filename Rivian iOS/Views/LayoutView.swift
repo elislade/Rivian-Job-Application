@@ -2,12 +2,11 @@ import SwiftUI
 
 struct LayoutView<Content:View>: View {
     
-    @Binding var axis:Axis
+    let axis: Axis
+    let content: Content
     
-    var content:Content
-    
-    init(_ axis:Binding<Axis>, @ViewBuilder content:() -> Content) {
-        self._axis = axis
+    init(_ axis: Axis, @ViewBuilder content:() -> Content) {
+        self.axis = axis
         self.content = content()
     }
     

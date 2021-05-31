@@ -3,9 +3,10 @@ import MapKit
 import CoreLocation
 
 struct LocationCharacteristicView: View {
-    @ObservedObject var c:Characteristic
-    @State var value:CLLocation?
-    @State var address = ""
+    @ObservedObject var c: Characteristic
+    
+    @State private var value: CLLocation?
+    @State private var address: String?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -13,7 +14,7 @@ struct LocationCharacteristicView: View {
                 Image(systemName: "map.fill")
                 Text("Location").fontWeight(.semibold)
                 Spacer()
-                Text(address)
+                Text(address ?? "")
             }
             
             if value != nil {
@@ -26,7 +27,10 @@ struct LocationCharacteristicView: View {
             if let d = $0 {
                 if let l = CLLocation(d) {
                     self.value = l
-                    l.address(binding: self.$address)
+                    
+                    l.address{
+                        self.address = $0
+                    }
                 }
             }
         })

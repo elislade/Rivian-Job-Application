@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DefaultCharacteristicView: View {
-    @ObservedObject var c:Characteristic
+    let c: Characteristic
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {

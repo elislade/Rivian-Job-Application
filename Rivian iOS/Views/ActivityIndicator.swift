@@ -3,7 +3,7 @@ import SwiftUI
 struct ActivityIndicator:UIViewRepresentable {
     typealias UIViewType = UIActivityIndicatorView
     
-    @State var style:UIActivityIndicatorView.Style = .medium
+    let style: UIActivityIndicatorView.Style = .medium
     
     func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
         let a = UIActivityIndicatorView(style: style)

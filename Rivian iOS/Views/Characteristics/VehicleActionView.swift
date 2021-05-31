@@ -2,9 +2,8 @@ import SwiftUI
 
 struct VehicleActionView: View {
     
-    @State var characteristic:Characteristic
-    
-    var triggered:(Vehicle.Action) -> Void = {_ in}
+    let characteristic: Characteristic
+    var triggered: (Vehicle.Action) -> Void = {_ in}
     
     func send(_ action:Vehicle.Action){
         if self.characteristic.canSendWriteWithoutResponse {

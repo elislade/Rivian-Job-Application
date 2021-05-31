@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct ActionCharacteristicView: View {
-    @ObservedObject var c:Characteristic
-    @State var value:Vehicle.Action?
+    
+    @ObservedObject var c: Characteristic
+    @State private var value: Vehicle.Action?
     
     var body: some View {
         VStack(spacing: 10) {

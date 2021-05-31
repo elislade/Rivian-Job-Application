@@ -3,8 +3,8 @@ import CoreBluetooth
 
 struct ServiceView: View {
     
-    @ObservedObject var service:Service
-    @State var isExpanded = true
+    @ObservedObject var service: Service
+    @State private var isExpanded = true
     
     func discoverCharacteristics() {
         service.discoverCharacteristics(withUUIDS:

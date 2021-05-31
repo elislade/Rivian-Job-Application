@@ -2,6 +2,7 @@ import SwiftUI
 import CoreBluetooth
 
 struct PeripheralView: View {
+    
     @EnvironmentObject var vehicle:Vehicle
     @ObservedObject var peripheral:Peripheral
     

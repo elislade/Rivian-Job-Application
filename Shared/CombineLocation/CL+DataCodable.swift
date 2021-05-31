@@ -1,6 +1,5 @@
 import Foundation
 import CoreLocation
-import SwiftUI
 import MapKit
 
 extension CLLocationCoordinate2D:DataCodable {
@@ -82,15 +81,9 @@ extension CLLocation {
 extension CLLocation:MKAnnotation {}
 
 extension CLLocation {
-    func address(binding:Binding<String>) {
-        CLGeocoder().reverseGeocodeLocation(self, completionHandler: {
-            if let error = $1 {
-                binding.wrappedValue = error.localizedDescription
-            }
-            
-            if let n = $0?.first?.name {
-                binding.wrappedValue = n
-            }
+    func address(completion: @escaping (String?) -> Void) {
+        CLGeocoder().reverseGeocodeLocation(self, completionHandler: { marks, error in
+            completion(marks?.first?.name)
         })
     }
 }

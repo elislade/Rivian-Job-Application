@@ -23,7 +23,7 @@ struct ActionsView: View {
     
     var body: some View {
         List {
-            Section(header:Text("Action").fontWeight(.semibold)){
+            Section(header: Text("Action").fontWeight(.semibold)){
                 ForEach(actions.reversed()) { action in
                     cell(for: action)
                 }
