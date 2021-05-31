@@ -1,10 +1,3 @@
-//
-//  VehicleCard.swift
-//  RivianClient
-//
-//  Created by Eli Slade on 2021-05-30.
-//
-
 import SwiftUI
 import MapKit
 import CoreLocation

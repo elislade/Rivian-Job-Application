@@ -13,23 +13,24 @@ struct ActionsView: View {
     }
     
     func cell(for action: Vehicle.Action) -> some View {
-        HStack {
+        VStack(spacing: 20) {
             action.image.imageScale(.large).frame(width: 40)
-            Text(action.description).fontWeight(.bold)
-            Spacer()
+            Text(action.description).fontWeight(.bold).lineLimit(1)
             Button("Send Back", action: { self.send(action) })
         }.padding(.vertical, 10)
     }
     
     var body: some View {
-        List {
-            Section(header: Text("Action").fontWeight(.semibold)){
-                ForEach(actions.reversed()) { action in
-                    cell(for: action)
+        Group {
+            if actions.count > 0 {
+                ScrollView(.horizontal) {
+                    HStack(spacing: 20){
+                        ForEach(actions.reversed()) { action in
+                            cell(for: action)
+                        }
+                    }.padding()
                 }
             }
         }
-        .listStyle(PlainListStyle())
-        .frame(minHeight: 150)
     }
 }

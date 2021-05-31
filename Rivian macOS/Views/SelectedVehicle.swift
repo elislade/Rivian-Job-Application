@@ -43,18 +43,8 @@ struct SelectedVehicle: View {
         self.vehicle.isAdvert = false
     }
     
-    var body: some View {
-        VStack(spacing: 0) {
-            if locManager.location != nil {
-                MapView(anno: locManager.location!)
-                    .cornerRadius(5)
-                    .overlay(Button("Send Location", action: sendLocation).padding(5), alignment: .topTrailing)
-            }
-            
-            ActionsView(vehicle: vehicle, actions: vehicle.actions)
-        }
-        .navigationTitle(vehicle.name)
-        .toolbar(content: {
+    var header : some View {
+        Group {
             if vehicle.isAdvert {
                 Button("Stop Advert", action: stopAdvertise)
             } else {
@@ -66,7 +56,26 @@ struct SelectedVehicle: View {
             } else {
                 Button("Add Services", action: addServices)
             }
-        })
+        }
+    }
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack {
+                Text(vehicle.name).font(.title.bold())
+                Spacer()
+                header
+            }.padding([.horizontal, .top])
+            
+            if locManager.location != nil {
+                MapView(anno: locManager.location!)
+                    .cornerRadius(5)
+                    .overlay(Button("Send Location", action: sendLocation).padding(), alignment: .topTrailing)
+                    .padding()
+            }
+            
+            ActionsView(vehicle: vehicle, actions: vehicle.actions)
+        }
         .onAppear {
             self.btManager.reqValue = { char_id in
                 guard

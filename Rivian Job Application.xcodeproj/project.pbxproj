@@ -93,6 +93,9 @@
 		1CF1202126647D2300A36986 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1201F26647D2300A36986 /* AudioManager.swift */; };
 		1CF12023266498E300A36986 /* VehicleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF12022266498E300A36986 /* VehicleCard.swift */; };
 		1CF1202A2664F1A200A36986 /* RadiatingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF120292664F1A200A36986 /* RadiatingCircles.swift */; };
+		1CF1202B26650F1900A36986 /* LayoutContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBED245C948A0069BB8B /* LayoutContainer.swift */; };
+		1CF1202C26650F2F00A36986 /* RadiatingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF120292664F1A200A36986 /* RadiatingCircles.swift */; };
+		1CF1202D26650F4500A36986 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA7245C92650069BB8B /* LayoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -375,6 +378,9 @@
 			isa = PBXGroup;
 			children = (
 				1CE8E541245CD22500A30DCB /* Representables */,
+				1CD1FBA7245C92650069BB8B /* LayoutView.swift */,
+				1CD1FBED245C948A0069BB8B /* LayoutContainer.swift */,
+				1CF120292664F1A200A36986 /* RadiatingCircles.swift */,
 				1CD1FB98245C92640069BB8B /* VehicleView.swift */,
 			);
 			path = Views;
@@ -394,10 +400,7 @@
 		1CF120282664E9FF00A36986 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				1CD1FBED245C948A0069BB8B /* LayoutContainer.swift */,
 				1CD1FB9E245C92640069BB8B /* ActivityIndicator.swift */,
-				1CD1FBA7245C92650069BB8B /* LayoutView.swift */,
-				1CF120292664F1A200A36986 /* RadiatingCircles.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 			files = (
 				1CE8E53A245C9B7600A30DCB /* VehicleView.swift in Sources */,
 				1CD1FC2F245C969B0069BB8B /* PeripheralManager.swift in Sources */,
+				1CF1202D26650F4500A36986 /* LayoutView.swift in Sources */,
 				1CD1FC29245C969B0069BB8B /* Central.swift in Sources */,
 				1CD1FC1E245C96970069BB8B /* Vehicle.swift in Sources */,
 				1CD1FC24245C96970069BB8B /* DataCoding.swift in Sources */,
@@ -596,10 +600,12 @@
 				1CA6C044261A47740037E6D4 /* RivianHostApp.swift in Sources */,
 				1CD1FC1A245C96500069BB8B /* HostContentView.swift in Sources */,
 				1CD1FC31245C96A20069BB8B /* CL+DataCodable.swift in Sources */,
+				1CF1202C26650F2F00A36986 /* RadiatingCircles.swift in Sources */,
 				1CD1FC28245C969B0069BB8B /* Service.swift in Sources */,
 				1CD1FC30245C969B0069BB8B /* Characteristic.swift in Sources */,
 				1CD1FC2B245C969B0069BB8B /* Descriptor.swift in Sources */,
 				1CD1FC2E245C969B0069BB8B /* ScannedPeripheral.swift in Sources */,
+				1CF1202B26650F1900A36986 /* LayoutContainer.swift in Sources */,
 				1CF1201E26646F9900A36986 /* AtlasSKNode.swift in Sources */,
 				1CD1FC1D245C96500069BB8B /* ActionsView.swift in Sources */,
 				1CD1FC32245C96A20069BB8B /* CLLocationManagerDelegateWrapper.swift in Sources */,

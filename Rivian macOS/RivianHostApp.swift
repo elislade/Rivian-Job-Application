@@ -8,7 +8,9 @@ struct RiviaHostApp: App {
             HostContentView()
                 .environmentObject(PeripheralManager())
                 .environmentObject(Location())
-        }.commands{
+        }
+        .windowStyle(HiddenTitleBarWindowStyle())
+        .commands{
             SidebarCommands()
             EmptyCommands()
         }
