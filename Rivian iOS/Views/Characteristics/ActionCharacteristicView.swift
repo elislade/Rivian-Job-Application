@@ -15,7 +15,7 @@ struct ActionCharacteristicView: View {
     }
     
     var body: some View {
-        ActionsView(perform: send)
+        ActionsView(actions: Vehicle.Action.allCases, perform: send)
             .onReceive(c.$value, perform: {
                 if let d = $0 {
                     self.value = Vehicle.Action(d)

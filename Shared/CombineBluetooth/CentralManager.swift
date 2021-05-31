@@ -67,10 +67,10 @@ class CentralManager: ObservableObject {
         }
     }
     
-    private var connectPub:AnyCancellable?
-    private var connectFailPub:AnyCancellable?
-    private var disconnectPub:AnyCancellable?
-    func connect(_ peripheral:CBPeripheral, options:[String: Any]?) {
+    private var connectPub: AnyCancellable?
+    private var connectFailPub: AnyCancellable?
+    private var disconnectPub: AnyCancellable?
+    func connect(_ peripheral: CBPeripheral, options: [String: Any]?) {
         manager.connect(peripheral, options: options)
         
         if connectPub == nil {

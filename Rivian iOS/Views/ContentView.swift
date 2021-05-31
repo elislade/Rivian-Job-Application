@@ -9,36 +9,36 @@ struct ContentView: View {
     
     let vehicle: Vehicle?
     
-//    let axis: Axis
-//
-//    var paddingEdges:Edge.Set {
-//        let d = UIDevice.current.userInterfaceIdiom
-//        return axis == .horizontal ?
-//            [ d == .pad ? .bottom : .vertical, .trailing] :
-//            [.bottom, .horizontal]
-//    }
+    func connect() {
+        if let scn = vehicle?.scannedPeriph {
+            central.connect(scn.peripheral.peripheral, options: nil)
+        }
+    }
     
     var body: some View {
         VStack(spacing: 0) {
             Spacer()
-            HeaderView()
+            HeaderView().onTapGesture {
+                withAnimation(.spring().speed(0.3)){
+                    state = state == .searching ? .loaded : .searching
+                }
+            }
+            
             Spacer()
             
             if state == .loaded && vehicle != nil {
                 VehicleView(vehicle: vehicle!)
-                    .transition(.scale(scale: 0).combined(with: .opacity))
-                    .onTapGesture {
-                        if let scn = vehicle?.scannedPeriph {
-                            central.connect(scn.peripheral.peripheral, options: nil)
-                        }
-                    }
+                    .transition(.offset(y: 700))
+                    .zIndex(2)
+                    .onTapGesture(perform: connect)
                 
                 Spacer()
                 
-                if seleted && vehicle!.connectedPeriph != nil{
+                if seleted && vehicle!.connectedPeriph != nil {
                     PeripheralView(peripheral: vehicle!.connectedPeriph!)
-                        .environmentObject(vehicle!)
                         .transition(.hinge(.bottom))
+                        .zIndex(5)
+                        .environmentObject(vehicle!)
                 }
             }
             
@@ -46,12 +46,12 @@ struct ContentView: View {
         .onReceive(central.$connectedPeripherals, perform: { a in
             if let v = vehicle {
                 if let periph = a.first {
-                    withAnimation(.spring().speed(0.5)){
+                    withAnimation(.easeInOut(duration: 2)){
                         v.connectedPeriph = periph
                         seleted = true
                     }
                 } else {
-                    withAnimation(.spring().speed(0.5)){
+                    withAnimation(.easeOut(duration: 2)){
                         v.connectedPeriph = nil
                         seleted = false
                     }

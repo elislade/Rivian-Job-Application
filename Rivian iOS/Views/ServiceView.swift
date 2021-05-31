@@ -13,13 +13,13 @@ struct ServiceView: View {
     }
     
     var body: some View {
-        VStack(spacing: 20){
+        VStack(spacing: 16){
             ForEach(service.characteristics) {
                 CharacteristicView(c: $0)
             }
         }
-        .padding(20)
-        .background(LinearGradient.riv_blue)
+        .padding()
+        .background(LinearGradient.riv_blue.drawingGroup())
         .colorScheme(.dark)
         .onAppear(perform: discoverCharacteristics)
     }

@@ -7,7 +7,7 @@ struct CharacteristicView: View {
     let c: Characteristic
     
     var body: some View {
-        Group {
+        ZStack {
             if c.id == .main_action_id(for: vehicle) {
                 ActionCharacteristicView(c: c)
             } else if c.id == .main_location_id(for: vehicle) {

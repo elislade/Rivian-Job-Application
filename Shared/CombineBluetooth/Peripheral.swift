@@ -5,13 +5,13 @@ import os
 
 class Peripheral: ObservableObject {
     
-    unowned let manager:CentralManager
-    let peripheral:CBPeripheral
+    unowned let manager: CentralManager
+    let peripheral: CBPeripheral
     let delegate = CBPeripheralDelegateWrapper()
     
-    @Published private(set) var services:[Service] = []
-    @Published var name:String = ""
-    @Published var rssi:Int = 0
+    @Published private(set) var services: [Service] = []
+    @Published var name: String = ""
+    @Published var rssi: Int = 0
     
     init(_ manager:CentralManager, peripheral: CBPeripheral) {
         self.manager = manager

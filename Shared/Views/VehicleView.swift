@@ -15,9 +15,13 @@ struct VehicleView: View {
             AtlasTexture(name: vehicle.imageName, control: textureControl)
                 .aspectRatio(2, contentMode: .fit)
                 .overlay(Color.white.opacity(0.01))
+                .id(vehicle.name)
                 .onAppear{
                     textureControl.set(percent: 1)
                     textureControl.set(percent: 0, animated: true)
+                }
+                .onDisappear{
+                    textureControl.set(percent: 1, animated: true)
                 }
         }
     }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct LayoutModifier: ViewModifier {
-    @State var axis:Axis
+    @State var axis: Axis
     
     func body(content: Content) -> some View {
         Group {

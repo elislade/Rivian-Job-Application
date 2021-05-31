@@ -12,9 +12,9 @@ struct LocationCharacteristicView: View {
             Color.clear
             
             if location != nil {
-                LocationView(location: location!)
+                LocationView(location: location!).zIndex(2).transition(.identity)
             } else {
-                ActivityIndicator()
+                ActivityIndicator().zIndex(1)
             }
         }
         .aspectRatio(1.6, contentMode: .fit)

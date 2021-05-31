@@ -24,34 +24,43 @@ struct RootView: View {
         if let periph = peripherals.first {
             let v = periph.asVehicle()
             v?.scannedPeriph = periph
-            withAnimation(.spring().speed(0.5)) {
+            withAnimation(.spring().speed(0.2)) {
                 firstVehicle = v
                 state = .loaded
             }
         }
     }
     
+    var circleTrany: AnyTransition {
+        .asymmetric(
+            insertion: .scale(scale: 0.05),
+            removal: .scale(scale: 0)
+        )
+    }
+    
     var body: some View {
         ContentView(state: $state, vehicle: firstVehicle)
-            .colorScheme(state == .searching ? .dark : .light)
             .background(
                 ZStack {
                     LinearGradient.riv_blue
                     
                     if state == .searching {
                         RadiatingCicles()
+                            .foregroundColor(.white)
                             .transition(.scale(scale: 0).combined(with: .opacity))
-                    }
-                    
-                    if state == .loaded {
+                            .zIndex(2)
+                    } else {
                         Circle()
                             .scaleEffect(2.5)
-                            .transition(.scale(scale: 0).combined(with: .opacity))
+                            .foregroundColor(.white)
+                            .transition(circleTrany)
+                            .zIndex(3)
                     }
                     
-                    Image("topo").opacity(state == .searching ? 1 : 0.7)
-                }
+                    Image("topo").opacity(state == .searching ? 1 : 0.7).zIndex(4)
+                }.drawingGroup()
             )
+            .colorScheme(state == .searching ? .dark : .light)
             .onReceive(central.$state, perform: central)
             .onReceive(central.$scannedPeripherals, perform: scanned)
             .edgesIgnoringSafeArea(.all)
@@ -60,6 +69,6 @@ struct RootView: View {
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView()
+        RootView().environmentObject(CentralManager())
     }
 }

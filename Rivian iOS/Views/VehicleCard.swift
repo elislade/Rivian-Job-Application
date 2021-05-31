@@ -18,7 +18,7 @@ struct VehicleCard: View {
                 ActivityIndicator()
             }
             
-            ActionsView(perform: perform)
+            ActionsView(actions: Vehicle.Action.allCases, perform: perform)
         }
         .padding(20)
         .background(Color("riv_darkblue"))
@@ -35,11 +35,12 @@ struct VeCardPreview: PreviewProvider {
 
 struct ActionsView: View {
     
+    let actions: [Vehicle.Action]
     let perform: (Vehicle.Action) -> Void
     
     var body: some View {
-        HStack(spacing: 20) {
-            ForEach(Vehicle.Action.allCases){ act in
+        HStack(spacing: 16) {
+            ForEach(actions){ act in
                 Button(action: { perform(act) }){
                     HStack {
                         Spacer(minLength: 0)
@@ -75,7 +76,7 @@ struct LocationView: View {
                 Text(MKDistanceFormatter().string(fromDistance: location.altitude)).opacity(0.6)
             }.padding().background(Color.black.opacity(0.8)), alignment: .top)
             .cornerRadius(14)
-            .onAppear{
+            .onAppear {
                 location.address(completion: {
                     self.address = $0
                 })
