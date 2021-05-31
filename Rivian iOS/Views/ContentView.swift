@@ -20,17 +20,11 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            //if state == .searching {
-                Spacer()
-            //}
-            
+            Spacer()
             HeaderView()
+            Spacer()
             
-            //if state == .searching {
-                Spacer()
-            //}
-            
-            if state == .loaded &&  vehicle != nil {
+            if state == .loaded && vehicle != nil {
                 VehicleView(vehicle: vehicle!)
                     .transition(.scale(scale: 0).combined(with: .opacity))
                     .onTapGesture {
@@ -52,9 +46,14 @@ struct ContentView: View {
         .onReceive(central.$connectedPeripherals, perform: { a in
             if let v = vehicle {
                 if let periph = a.first {
-                    v.connectedPeriph = periph
                     withAnimation(.spring().speed(0.5)){
+                        v.connectedPeriph = periph
                         seleted = true
+                    }
+                } else {
+                    withAnimation(.spring().speed(0.5)){
+                        v.connectedPeriph = nil
+                        seleted = false
                     }
                 }
             }

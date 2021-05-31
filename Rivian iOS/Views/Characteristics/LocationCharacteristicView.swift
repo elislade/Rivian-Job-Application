@@ -8,13 +8,17 @@ struct LocationCharacteristicView: View {
     @State private var location: CLLocation?
     
     var body: some View {
-        Group {
+        ZStack {
+            Color.clear
+            
             if location != nil {
                 LocationView(location: location!)
             } else {
                 ActivityIndicator()
             }
-        }.onReceive(c.$value, perform: {
+        }
+        .aspectRatio(1.6, contentMode: .fit)
+        .onReceive(c.$value, perform: {
             if let d = $0 {
                 location = CLLocation(d)
             }

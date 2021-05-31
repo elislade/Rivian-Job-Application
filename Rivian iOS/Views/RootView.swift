@@ -22,9 +22,10 @@ struct RootView: View {
     
     func scanned(_ peripherals: [ScannedPeripheral]) {
         if let periph = peripherals.first {
-            firstVehicle = periph.asVehicle()
-            firstVehicle?.scannedPeriph = periph
+            let v = periph.asVehicle()
+            v?.scannedPeriph = periph
             withAnimation(.spring().speed(0.5)) {
+                firstVehicle = v
                 state = .loaded
             }
         }
@@ -49,8 +50,7 @@ struct RootView: View {
                     }
                     
                     Image("topo").opacity(state == .searching ? 1 : 0.7)
-                    
-                }//.edgesIgnoringSafeArea(.all)
+                }
             )
             .onReceive(central.$state, perform: central)
             .onReceive(central.$scannedPeripherals, perform: scanned)
