@@ -12,22 +12,34 @@ struct HostContentView: View {
             List {
                 VStack(spacing:0) {
                     ForEach(vehicles.indices) { index in
-                        Button(action: { self.selectedIndex = index }){
+                        Button(action: { withAnimation(.spring().speed(0.5)) {
+                            selectedIndex = index }
+                        }){
                              VehicleView(vehicle: self.vehicles[index])
                                 .padding(.horizontal)
                                 .padding(.vertical, 8)
-                                .background(index == self.selectedIndex ? Color.black.opacity(0.08) : Color.white.opacity(0.02))
-                                .cornerRadius(6)
+                                .background(index == self.selectedIndex ? Color("riv_yellow") : Color.white.opacity(0.02))
+                                .cornerRadius(15)
                         }.buttonStyle(PlainButtonStyle())
                     }
                 }
-            }.frame(maxWidth: 380)
+            }
+            .frame(minWidth: 320)
+            .background(ZStack {
+                Color.white
+                Image("topo").opacity(0.8)
+            }.edgesIgnoringSafeArea(.all))
+            .colorScheme(.light)
             
             if selectedIndex >= 0 {
                 SelectedVehicle( vehicle: vehicles[selectedIndex] )
                     .frame(minWidth: 500)
+                    .background(Color("riv_darkblue").edgesIgnoringSafeArea(.all))
+                    .colorScheme(.dark)
             }
         }
+        .background(Color("riv_darkblue").edgesIgnoringSafeArea(.all))
+        //.frame(maxWidth: selectedIndex < 0 ? 320 : 1200)
     }
 }
 

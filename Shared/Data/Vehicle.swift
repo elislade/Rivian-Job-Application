@@ -1,5 +1,4 @@
 import Foundation
-import AVFoundation
 
 class Vehicle: ObservableObject {
     
@@ -7,7 +6,7 @@ class Vehicle: ObservableObject {
     let uuidString: String
     let imageName: String
     
-    init(name:String, uuidString:String, imageName:String){
+    init(name: String, uuidString: String, imageName: String){
         self.name = name
         self.uuidString = uuidString
         self.imageName = imageName
@@ -16,16 +15,18 @@ class Vehicle: ObservableObject {
     @Published var isSetup = false
     @Published var isAdvert = false
     @Published var actions: [Vehicle.Action] = []
+    @Published var scannedPeriph: ScannedPeripheral?
+    @Published var connectedPeriph: Peripheral?
+    
 }
 
-
-extension Vehicle:Hashable, Identifiable {
+extension Vehicle: Hashable, Identifiable {
     static func == (lhs: Vehicle, rhs: Vehicle) -> Bool {
         lhs.uuidString == rhs.uuidString
     }
     
     func hash(into hasher: inout Hasher) {
-        uuidString.hash(into: &hasher)
+        hasher.combine(uuidString)
     }
 }
 
@@ -42,7 +43,7 @@ extension Vehicle {
         imageName: "r1s"
     )
     
-    static func get(from string:String) -> Vehicle {
+    static func get(from string: String) -> Vehicle {
         string.lowercased().contains(r1t.name.lowercased()) ? r1t : r1s
     }
 }

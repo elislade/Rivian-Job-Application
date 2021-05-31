@@ -12,7 +12,6 @@
 		1CD1FB87245C91B90069BB8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB86245C91B90069BB8B /* SceneDelegate.swift */; };
 		1CD1FB8E245C91BB0069BB8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FB8D245C91BB0069BB8B /* Preview Assets.xcassets */; };
 		1CD1FB91245C91BB0069BB8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FB8F245C91BB0069BB8B /* LaunchScreen.storyboard */; };
-		1CD1FBA9245C92650069BB8B /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB97245C92640069BB8B /* ScannerView.swift */; };
 		1CD1FBAA245C92650069BB8B /* VehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB98245C92640069BB8B /* VehicleView.swift */; };
 		1CD1FBAB245C92650069BB8B /* CharacteristicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB99245C92640069BB8B /* CharacteristicView.swift */; };
 		1CD1FBAC245C92650069BB8B /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9A245C92640069BB8B /* ServiceView.swift */; };
@@ -21,7 +20,6 @@
 		1CD1FBAF245C92650069BB8B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9D245C92640069BB8B /* RootView.swift */; };
 		1CD1FBB0245C92650069BB8B /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9E245C92640069BB8B /* ActivityIndicator.swift */; };
 		1CD1FBB1245C92650069BB8B /* LocationCharacteristicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA0245C92640069BB8B /* LocationCharacteristicView.swift */; };
-		1CD1FBB2245C92650069BB8B /* VehicleActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA1245C92640069BB8B /* VehicleActionView.swift */; };
 		1CD1FBB3245C92650069BB8B /* DefaultCharacteristicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA2245C92650069BB8B /* DefaultCharacteristicView.swift */; };
 		1CD1FBB4245C92650069BB8B /* ActionCharacteristicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA3245C92650069BB8B /* ActionCharacteristicView.swift */; };
 		1CD1FBB5245C92650069BB8B /* TextureAtlasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA4245C92650069BB8B /* TextureAtlasView.swift */; };
@@ -93,6 +91,8 @@
 		1CF1201E26646F9900A36986 /* AtlasSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1201C26646F9900A36986 /* AtlasSKNode.swift */; };
 		1CF1202026647D2300A36986 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1201F26647D2300A36986 /* AudioManager.swift */; };
 		1CF1202126647D2300A36986 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1201F26647D2300A36986 /* AudioManager.swift */; };
+		1CF12023266498E300A36986 /* VehicleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF12022266498E300A36986 /* VehicleCard.swift */; };
+		1CF1202A2664F1A200A36986 /* RadiatingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF120292664F1A200A36986 /* RadiatingCircles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,7 +103,6 @@
 		1CD1FB8D245C91BB0069BB8B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1CD1FB90245C91BB0069BB8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CD1FB92245C91BB0069BB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CD1FB97245C92640069BB8B /* ScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		1CD1FB98245C92640069BB8B /* VehicleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
 		1CD1FB99245C92640069BB8B /* CharacteristicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicView.swift; sourceTree = "<group>"; };
 		1CD1FB9A245C92640069BB8B /* ServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
@@ -112,7 +111,6 @@
 		1CD1FB9D245C92640069BB8B /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1CD1FB9E245C92640069BB8B /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		1CD1FBA0245C92640069BB8B /* LocationCharacteristicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCharacteristicView.swift; sourceTree = "<group>"; };
-		1CD1FBA1245C92640069BB8B /* VehicleActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleActionView.swift; sourceTree = "<group>"; };
 		1CD1FBA2245C92650069BB8B /* DefaultCharacteristicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCharacteristicView.swift; sourceTree = "<group>"; };
 		1CD1FBA3245C92650069BB8B /* ActionCharacteristicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCharacteristicView.swift; sourceTree = "<group>"; };
 		1CD1FBA4245C92650069BB8B /* TextureAtlasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureAtlasView.swift; sourceTree = "<group>"; };
@@ -160,6 +158,8 @@
 		1CD1FC3C245C98440069BB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CF1201C26646F9900A36986 /* AtlasSKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasSKNode.swift; sourceTree = "<group>"; };
 		1CF1201F26647D2300A36986 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		1CF12022266498E300A36986 /* VehicleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCard.swift; sourceTree = "<group>"; };
+		1CF120292664F1A200A36986 /* RadiatingCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiatingCircles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,12 +191,9 @@
 		1CA6C03C261A46FC0037E6D4 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				1CE8E541245CD22500A30DCB /* Representables */,
-				1CD1FBF3245C955D0069BB8B /* unlock.mp3 */,
+				1CF120252664C9DF00A36986 /* Audio */,
+				1CF120242664C9D400A36986 /* Views */,
 				1CD1FBF4245C955D0069BB8B /* Assets.xcassets */,
-				1CD1FBF5245C955D0069BB8B /* horn.wav */,
-				1CD1FBF6245C955D0069BB8B /* lock.mp3 */,
-				1CD1FB98245C92640069BB8B /* VehicleView.swift */,
 				1CD1FBBE245C93900069BB8B /* Data */,
 				1CD1FBE6245C94610069BB8B /* CombineLocation */,
 				1CD1FBCD245C93F30069BB8B /* CombineBluetooth */,
@@ -232,7 +229,6 @@
 				1CD1FB84245C91B90069BB8B /* AppDelegate.swift */,
 				1CD1FB86245C91B90069BB8B /* SceneDelegate.swift */,
 				1CD1FBBC245C92BB0069BB8B /* Assets.xcassets */,
-				1CD1FBED245C948A0069BB8B /* LayoutContainer.swift */,
 				1CD1FB96245C92640069BB8B /* Views */,
 				1CD1FB8F245C91BB0069BB8B /* LaunchScreen.storyboard */,
 				1CD1FB92245C91BB0069BB8B /* Info.plist */,
@@ -252,17 +248,15 @@
 		1CD1FB96245C92640069BB8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1CD1FBA7245C92650069BB8B /* LayoutView.swift */,
+				1CF120282664E9FF00A36986 /* Helpers */,
 				1CD1FB9D245C92640069BB8B /* RootView.swift */,
-				1CD1FBA8245C92650069BB8B /* ContentView.swift */,
+				1CF12022266498E300A36986 /* VehicleCard.swift */,
 				1CD1FBA5245C92650069BB8B /* HeaderView.swift */,
-				1CD1FB97245C92640069BB8B /* ScannerView.swift */,
-				1CD1FB99245C92640069BB8B /* CharacteristicView.swift */,
+				1CD1FBA8245C92650069BB8B /* ContentView.swift */,
+				1CD1FBA6245C92650069BB8B /* PeripheralView.swift */,
 				1CD1FB9A245C92640069BB8B /* ServiceView.swift */,
 				1CD1FB9B245C92640069BB8B /* DescriptorView.swift */,
-				1CD1FB9E245C92640069BB8B /* ActivityIndicator.swift */,
 				1CD1FB9F245C92640069BB8B /* Characteristics */,
-				1CD1FBA6245C92650069BB8B /* PeripheralView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -270,9 +264,9 @@
 		1CD1FB9F245C92640069BB8B /* Characteristics */ = {
 			isa = PBXGroup;
 			children = (
-				1CD1FBA0245C92640069BB8B /* LocationCharacteristicView.swift */,
-				1CD1FBA1245C92640069BB8B /* VehicleActionView.swift */,
+				1CD1FB99245C92640069BB8B /* CharacteristicView.swift */,
 				1CD1FBA2245C92650069BB8B /* DefaultCharacteristicView.swift */,
+				1CD1FBA0245C92640069BB8B /* LocationCharacteristicView.swift */,
 				1CD1FBA3245C92650069BB8B /* ActionCharacteristicView.swift */,
 			);
 			path = Characteristics;
@@ -281,7 +275,6 @@
 		1CD1FBBE245C93900069BB8B /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				1CF1201F26647D2300A36986 /* AudioManager.swift */,
 				1CD1FBBF245C93900069BB8B /* Vehicle.swift */,
 				1CD1FBC0245C93900069BB8B /* Extensions.swift */,
 				1CD1FBC1245C93900069BB8B /* Vehicle+Action.swift */,
@@ -376,6 +369,37 @@
 				1CF1201C26646F9900A36986 /* AtlasSKNode.swift */,
 			);
 			path = Representables;
+			sourceTree = "<group>";
+		};
+		1CF120242664C9D400A36986 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CE8E541245CD22500A30DCB /* Representables */,
+				1CD1FB98245C92640069BB8B /* VehicleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1CF120252664C9DF00A36986 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				1CF1201F26647D2300A36986 /* AudioManager.swift */,
+				1CD1FBF3245C955D0069BB8B /* unlock.mp3 */,
+				1CD1FBF5245C955D0069BB8B /* horn.wav */,
+				1CD1FBF6245C955D0069BB8B /* lock.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		1CF120282664E9FF00A36986 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FBED245C948A0069BB8B /* LayoutContainer.swift */,
+				1CD1FB9E245C92640069BB8B /* ActivityIndicator.swift */,
+				1CD1FBA7245C92650069BB8B /* LayoutView.swift */,
+				1CF120292664F1A200A36986 /* RadiatingCircles.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,13 +551,13 @@
 				1CD1FBE4245C93F30069BB8B /* PeripheralManager.swift in Sources */,
 				1CD1FBEA245C94610069BB8B /* CL+DataCodable.swift in Sources */,
 				1CD1FBEE245C948A0069BB8B /* LayoutContainer.swift in Sources */,
+				1CF1202A2664F1A200A36986 /* RadiatingCircles.swift in Sources */,
 				1CD1FBAD245C92650069BB8B /* DescriptorView.swift in Sources */,
-				1CD1FBB2245C92650069BB8B /* VehicleActionView.swift in Sources */,
 				1CD1FBB9245C92650069BB8B /* ContentView.swift in Sources */,
 				1CD1FBDB245C93F30069BB8B /* CBPeripheralDelegateWrapper.swift in Sources */,
-				1CD1FBA9245C92650069BB8B /* ScannerView.swift in Sources */,
 				1CD1FBEC245C94610069BB8B /* CombineLocation.swift in Sources */,
 				1CD1FBC6245C93900069BB8B /* Vehicle.swift in Sources */,
+				1CF12023266498E300A36986 /* VehicleCard.swift in Sources */,
 				1CD1FBB6245C92650069BB8B /* HeaderView.swift in Sources */,
 				1CD1FBAC245C92650069BB8B /* ServiceView.swift in Sources */,
 				1CD1FBB7245C92650069BB8B /* PeripheralView.swift in Sources */,

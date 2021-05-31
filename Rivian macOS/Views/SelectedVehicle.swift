@@ -5,6 +5,7 @@ struct SelectedVehicle: View {
     
     @EnvironmentObject private var btManager: PeripheralManager
     @EnvironmentObject private var locManager: Location
+    
     @ObservedObject var vehicle: Vehicle
 
     func addServices() {

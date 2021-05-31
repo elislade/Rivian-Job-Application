@@ -1,8 +1,10 @@
 import SwiftUI
 
 struct CharacteristicView: View {
-    @EnvironmentObject var vehicle: Vehicle
-    @ObservedObject var c: Characteristic
+    
+    @EnvironmentObject private var vehicle: Vehicle
+    
+    let c: Characteristic
     
     var body: some View {
         Group {
@@ -14,9 +16,5 @@ struct CharacteristicView: View {
                 DefaultCharacteristicView(c: c)
             }
         }
-        .padding()
-        .background(Color(.systemBackground).opacity(0.5))
-        .colorScheme(.dark)
-        .cornerRadius(12)
     }
 }

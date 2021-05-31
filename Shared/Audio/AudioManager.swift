@@ -20,6 +20,10 @@ class AudioManager {
     }
     
     func playAudio(for action: Vehicle.Action) {
-        self.players[action]??.play()
+        if let player = self.players[action] {
+            player?.pause()
+            player?.currentTime = 0
+            player?.play()
+        }
     }
 }

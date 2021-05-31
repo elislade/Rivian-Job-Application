@@ -1,6 +1,6 @@
 import Foundation
 
-enum DataType:UInt8 {
+enum DataType: UInt8 {
     case string = 0, float, double, int, bool
 }
 
@@ -10,19 +10,19 @@ enum DataType:UInt8 {
 
 protocol DataCodable {
     init?(_ data: Data)
-    var data:Data { get }
+    var data: Data { get }
     
-    static var byteSize:Int { get }
+    static var byteSize: Int { get }
 }
 
 extension DataCodable {
-    static var byteSize:Int {
+    static var byteSize: Int {
         MemoryLayout<Self>.size
     }
 }
 
 extension Data {
-    func to<T:ExpressibleByIntegerLiteral>(type:T.Type) -> T? {
+    func to<T: ExpressibleByIntegerLiteral>(type: T.Type) -> T? {
         var value: T = 0
         guard self.count == MemoryLayout.size(ofValue: value) else { return nil }
         _ = Swift.withUnsafeMutableBytes(of: &value, { copyBytes(to: $0)} )
@@ -34,9 +34,9 @@ extension Data {
     // Eg. 100kb piece of data chunked to size 10kb would return 10 chunks
     // size is in bytes 10kb = 10,000 in actual usage
     
-    func chunked(to size:Int, withEOM:Bool = true) -> [Data] {
+    func chunked(to size: Int, withEOM: Bool = true) -> [Data] {
         let chunkCount = ceil(Double(count) / Double(size))
-        var chunkedData:[Data] = []
+        var chunkedData: [Data] = []
 
         if count > size {
             for i in 0..<Int(chunkCount)  {
@@ -60,8 +60,8 @@ extension Data {
     // Helpful for decoding data to an array of
     // inited typed values
     
-    func layoutDecoding(for layout:[DataCodable.Type]) -> [DataCodable] {
-        layout.reduce(into: (byteIndex:0, types:[DataCodable]()), { track, type in
+    func layoutDecoding(for layout: [DataCodable.Type]) -> [DataCodable] {
+        layout.reduce(into: (byteIndex: 0, types: [DataCodable]()), { track, type in
             if let inited = type.init(subdata(in: track.byteIndex..<track.byteIndex + type.byteSize)) {
                 track.types.append(inited)
                 track.byteIndex += type.byteSize
@@ -70,7 +70,7 @@ extension Data {
     }
 }
 
-extension Data:DataCodable {
+extension Data: DataCodable {
     var data: Data { self }
 }
 
@@ -79,30 +79,18 @@ extension Data:DataCodable {
 
 extension UInt8: DataCodable {
     init?(_ data: Data) { self = data[0] }
-    var data:Data { Data([self]) }
+    var data: Data { Data([self]) }
 }
 
-enum BitSize:UInt8, DataCodable {
+enum BitSize: UInt8, DataCodable {
     case _8 = 0, _16, _32, _64
-    
-    init?(_ data: Data) {
-        self.init(rawValue:data[0])
-    }
-    
-    var data: Data {
-        rawValue.data
-    }
-    
-    static func decode(_ data: Data) -> BitSize? {
-        self.init(rawValue:data[0])
-    }
 }
 
 
 //MARK: - Bool
 
-extension Bool:DataCodable {
-    init?(_ data:Data) {
+extension Bool: DataCodable {
+    init?(_ data: Data) {
         self = data[0] == 1
     }
     
@@ -114,21 +102,14 @@ extension Bool:DataCodable {
 
 //MARK: - Double
 
-extension Double:DataCodable {
-    static func decode(_ data: Data) -> Double? {
-        data.to(type: Self.self)
-    }
-    
-    static func encode(_ v: Double) -> Data {
-        withUnsafeBytes(of: v, { Data($0) })
-    }
+extension Double: DataCodable {
     
     init?(_ data: Data) {
-        guard let v = Self.decode(data) else { return nil }
+        guard let v = data.to(type: Self.self) else { return nil }
         self = v
     }
     
-    var data:Data {
+    var data: Data {
         withUnsafeBytes(of: self, { Data($0) })
     }
 }
@@ -136,51 +117,54 @@ extension Double:DataCodable {
 
 //MARK: - Float
 
-extension Float:DataCodable {
-    static func decode(_ data: Data) -> Float? {
-        data.to(type: Self.self)
+extension Float: DataCodable {
+    
+    init?(_ data: Data) {
+        guard let v = data.to(type: Self.self) else { return nil }
+        self = v
     }
     
-    var data:Data {
+    var data: Data {
         withUnsafeBytes(of: self, { Data($0) })
     }
     
-    init?(_ data: Data) {
-        guard let v = Self.decode(data) else { return nil }
-        self = v
-    }
 }
 
 
 //MARK: - Int
 
-extension Int:DataCodable {
+extension Int: DataCodable {
+    
     static func decode(_ data: Data) -> Int? {
         let bitData = data.subdata(in: 0..<1)
         let intData = data.subdata(in: 1..<data.count)
         
-        // decide how to decode based on bit encoding
-        if let bitSize = BitSize(bitData) {
-            if bitSize == ._8 {
-                if let v = intData.to(type: Int8.self) {
-                    return Int(v)
-                }
-            } else if bitSize == ._16 {
-                if let v = intData.to(type: Int16.self) {
-                    return Int(Int16(bigEndian:v))
-                }
-            } else if bitSize == ._32 {
-                if let v = intData.to(type: Int32.self) {
-                    return Int(Int32(bigEndian:v))
-                }
-            } else {
-                if let v = intData.to(type: Int64.self) {
-                    return Int(Int64(bigEndian:v))
-                }
+        guard let bitSize = BitSize(bitData) else { return nil }
+        
+        if bitSize == ._8 {
+            if let v = intData.to(type: Int8.self) {
+                return Int(v)
+            }
+        } else if bitSize == ._16 {
+            if let v = intData.to(type: Int16.self) {
+                return Int(Int16(bigEndian: v))
+            }
+        } else if bitSize == ._32 {
+            if let v = intData.to(type: Int32.self) {
+                return Int(Int32(bigEndian: v))
+            }
+        } else {
+            if let v = intData.to(type: Int64.self) {
+                return Int(Int64(bigEndian: v))
             }
         }
         
         return nil
+    }
+    
+    init?(_ data: Data) {
+        guard let n = Self.decode(data) else { return nil }
+        self = n
     }
     
     var data: Data {
@@ -203,26 +187,71 @@ extension Int:DataCodable {
         
         return bitData + intData
     }
+
+}
+
+extension UInt: DataCodable {
     
+    static func decode(_ data: Data) -> UInt? {
+        let bitData = data.subdata(in: 0..<1)
+        let intData = data.subdata(in: 1..<data.count)
+        
+        guard let bitSize = BitSize(bitData) else { return nil }
+        
+        if bitSize == ._8 {
+            if let v = intData.to(type: UInt8.self) {
+                return UInt(v)
+            }
+        } else if bitSize == ._16 {
+            if let v = intData.to(type: UInt16.self) {
+                return UInt(UInt16(bigEndian: v))
+            }
+        } else if bitSize == ._32 {
+            if let v = intData.to(type: UInt32.self) {
+                return UInt(UInt32(bigEndian: v))
+            }
+        } else {
+            if let v = intData.to(type: UInt64.self) {
+                return UInt(UInt64(bigEndian: v))
+            }
+        }
+        
+        return nil
+    }
     
     init?(_ data: Data) {
         guard let n = Self.decode(data) else { return nil }
         self = n
     }
+    
+    var data: Data {
+        var bitData = Data()
+        var intData = Data()
+
+        if self >= UInt8.min && self <= UInt8.max {
+            bitData = BitSize._8.data
+            intData = withUnsafeBytes(of: UInt8(self).bigEndian, { Data($0) })
+        } else if self >= UInt16.min && self <= UInt16.max {
+            bitData = BitSize._16.data
+            intData = withUnsafeBytes(of: UInt16(self).bigEndian, { Data($0) })
+        } else if self >= UInt32.min && self <= UInt32.max {
+            bitData = BitSize._32.data
+            intData = withUnsafeBytes(of: UInt32(self).bigEndian, { Data($0) })
+        } else {
+            bitData = BitSize._64.data
+            intData = withUnsafeBytes(of: self.bigEndian, { Data($0) })
+        }
+        
+        return bitData + intData
+    }
+
 }
 
 
 //MARK: - String
 
-extension String:DataCodable {
-    func decode(_ data: Data) -> String? {
-        String(data: data, encoding: .utf8)
-    }
-    
-    func encode(_ v: String) -> Data {
-        Data(v.utf8)
-    }
-    
+extension String: DataCodable {
+
     init?(_ data: Data) {
         guard let s = String(data: data, encoding: .utf8) else { return nil }
         self = s
@@ -236,24 +265,30 @@ extension String:DataCodable {
 
 //MARK: - Date
 
-extension Date:DataCodable {
+extension Date: DataCodable {
     
-    func decode(_ data: Data) -> Date? {
-        guard let interval = Double(data) else { return nil }
-        return Date(timeIntervalSince1970: interval)
-    }
-
     init?(_ data: Data) {
         guard let d = Double(data) else { return nil }
         self.init(timeIntervalSince1970: d)
     }
     
-    
-    var data:Data {
+    var data: Data {
         timeIntervalSince1970.data
     }
     
-    static var byteSize:Int {
+    static var byteSize: Int {
         Double.byteSize
+    }
+}
+
+extension RawRepresentable where RawValue: DataCodable {
+    
+    init?(_ data: Data) {
+        guard let d = RawValue(data) else { return nil }
+        self.init(rawValue: d)
+    }
+    
+    var data: Data {
+        rawValue.data
     }
 }

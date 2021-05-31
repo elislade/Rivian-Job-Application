@@ -6,10 +6,7 @@ struct DescriptorView: View {
     
     var body: some View {
         VStack {
-            Text("\(desc.descriptor.uuid)")
-            .font(.footnote)
-            .opacity(0.6)
-            
+            Text("\(desc.descriptor.uuid)").font(.footnote).opacity(0.6)
             Text(desc.descriptor.value.debugDescription)
         }
     }

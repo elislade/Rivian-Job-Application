@@ -2,9 +2,8 @@ import Foundation
 import CoreBluetooth
 import SwiftUI
 
-#if os(iOS)
 extension CBUUID {
-    var image:Image {
+    var image: Image {
         if "\(self)" == "Battery" {
             return Image(systemName: "battery.25")
         } else if "\(self)" == "Current Time" {
@@ -19,8 +18,6 @@ extension CBUUID {
     }
 }
 
-#endif
-
 extension CBPeripheralState: CustomStringConvertible {
     public var description: String {
         switch self {
@@ -34,7 +31,7 @@ extension CBPeripheralState: CustomStringConvertible {
 }
 
 extension CGSize {
-    static func *(rhs:CGSize, lhs:CGFloat) -> CGSize {
+    static func *(rhs: CGSize, lhs: CGFloat) -> CGSize {
         return CGSize(width: rhs.width * lhs, height: rhs.height * lhs)
     }
 }

@@ -2,66 +2,68 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let proxy: GeometryProxy
-    @State private var selectedPeripheral: Peripheral?
-    @State private var selectedVehicle: Vehicle = .r1s
-    let vehicles: [Vehicle] = [.r1t, .r1s]
+    @EnvironmentObject private var central: CentralManager
+    @State private var seleted = false
     
-    let axis: Axis
+    @Binding var state: ViewState
     
-    func radius(_ proxy:GeometryProxy) -> CGFloat {
-        return 8
-    }
+    let vehicle: Vehicle?
     
-    func padding(_ proxy:GeometryProxy) -> CGFloat {
-        proxy.safeAreaInsets.bottom > 0 ? 0 : 4
-    }
-    
-    let grad = LinearGradient(
-        gradient: Gradient(colors: [Color("riv_blue"), Color("riv_darkblue")]),
-        startPoint: UnitPoint(x: 0, y: 0),
-        endPoint: UnitPoint(x: 0, y: 1)
-    )
-    
-    var paddingEdges:Edge.Set {
-        let d = UIDevice.current.userInterfaceIdiom
-        return axis == .horizontal ?
-            [ d == .pad ? .bottom : .vertical, .trailing] :
-            [.bottom, .horizontal]
-    }
+//    let axis: Axis
+//
+//    var paddingEdges:Edge.Set {
+//        let d = UIDevice.current.userInterfaceIdiom
+//        return axis == .horizontal ?
+//            [ d == .pad ? .bottom : .vertical, .trailing] :
+//            [.bottom, .horizontal]
+//    }
     
     var body: some View {
-        Group {
-            LayoutView(axis) {
-                VStack(spacing:0) {
-                    HeaderView().zIndex(10)
-                    ScannerView(selectedPeripheral: $selectedPeripheral, selectedVehicle:$selectedVehicle)
-                        //.environmentObject(selectedVehicle!)
-                }
+        VStack(spacing: 0) {
+            //if state == .searching {
+                Spacer()
+            //}
+            
+            HeaderView()
+            
+            //if state == .searching {
+                Spacer()
+            //}
+            
+            if state == .loaded &&  vehicle != nil {
+                VehicleView(vehicle: vehicle!)
+                    .transition(.scale(scale: 0).combined(with: .opacity))
+                    .onTapGesture {
+                        if let scn = vehicle?.scannedPeriph {
+                            central.connect(scn.peripheral.peripheral, options: nil)
+                        }
+                    }
                 
-                if self.selectedPeripheral != nil {
-                    PeripheralView(peripheral: self.selectedPeripheral!)
-                        .environmentObject(selectedVehicle)
-                        .colorScheme(.dark)
-                        .background(self.grad)
-                        .cornerRadius(radius(proxy))
-                        .padding(self.paddingEdges, self.padding(proxy))
-                        .transition(.move(edge: self.axis == .horizontal ? .trailing : .bottom ))
-                        .frame(maxWidth: self.axis == .horizontal ? 400 : .infinity)
+                Spacer()
+                
+                if seleted && vehicle!.connectedPeriph != nil{
+                    PeripheralView(peripheral: vehicle!.connectedPeriph!)
+                        .environmentObject(vehicle!)
+                        .transition(.hinge(.bottom))
                 }
             }
+            
         }
-        .accentColor(Color("riv_yellow"))
-        .background(Image("topo").resizable().scaledToFill().opacity(0.3))
-        .edgesIgnoringSafeArea([.bottom, .horizontal])
-        .animation(.spring(response: 0.3, dampingFraction: 0.75))
+        .onReceive(central.$connectedPeripherals, perform: { a in
+            if let v = vehicle {
+                if let periph = a.first {
+                    v.connectedPeriph = periph
+                    withAnimation(.spring().speed(0.5)){
+                        seleted = true
+                    }
+                }
+            }
+        })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GeometryReader {
-            ContentView(proxy: $0, axis: .horizontal)
-        }
+        ContentView(state: .constant(.searching), vehicle: .r1s)
     }
 }

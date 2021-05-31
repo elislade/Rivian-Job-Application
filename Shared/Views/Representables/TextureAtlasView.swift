@@ -3,13 +3,12 @@ import SpriteKit
 
 struct AtlasTexture {
     
+    let name: String
     let control: TextureControl
-    let scene: SKScene
     
-    init(_ name: String, control: TextureControl) {
-        self.control = control
-        self.scene = SKScene()
-        self.scene.backgroundColor = .clear
+    func makeView() -> SKView {
+        let scene = SKScene()
+        scene.backgroundColor = .clear
         let n = AtlasSKNode(name: name)
         n.scale(to: scene.size)
         n.position = CGPoint(x: 0.5, y: 0.5)
@@ -17,9 +16,7 @@ struct AtlasTexture {
         self.control.listen{ comp, anim in
             n.set(percent: comp, animated: anim)
         }
-    }
-    
-    func makeView() -> SKView {
+        
         let view = SKView()
         view.allowsTransparency = true
         view.presentScene(scene)

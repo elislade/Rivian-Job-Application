@@ -8,9 +8,9 @@ class CentralManager: ObservableObject {
     let manager:CBCentralManager!
     let delegate = CBCentralManagerDelegateWrapper()
     
-    @Published private(set) var state:CBManagerState = .unknown
-    @Published private(set) var scannedPeripherals:[ScannedPeripheral] = []
-    @Published private(set) var connectedPeripherals:[Peripheral] = []
+    @Published private(set) var state: CBManagerState = .unknown
+    @Published private(set) var scannedPeripherals: [ScannedPeripheral] = []
+    @Published private(set) var connectedPeripherals: [Peripheral] = []
     @Published private(set) var isScanning = false
     
     init() {

@@ -20,6 +20,13 @@ extension View {
     }
 }
 
+extension LinearGradient {
+    static let riv_blue = LinearGradient(
+        gradient: Gradient(colors: [Color("riv_blue"), Color("riv_darkblue")]),
+        startPoint: UnitPoint(x: 0, y: 0),
+        endPoint: UnitPoint(x: 0, y: 1)
+    )
+}
 
 struct HingeModifier: ViewModifier {
     var degrees:Double = 0

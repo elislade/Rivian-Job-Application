@@ -43,14 +43,14 @@ class AtlasSKNode: SKSpriteNode {
                 self.currentComplete = complete
             }
         } else {
-            let endT = atlas.textureNames.sorted()[start]
+            let endT = atlas.textureNames.sorted()[end]
             texture = atlas.textureNamed(endT)
             currentComplete = complete
         }
     }
     
     private func index(for percent: CGFloat) -> Int {
-        let totalFrames = atlas.textureNames.count
+        let totalFrames = atlas.textureNames.count - 1
         return Int(CGFloat(totalFrames) * percent)
     }
 }
