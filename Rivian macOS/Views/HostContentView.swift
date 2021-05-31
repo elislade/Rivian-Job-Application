@@ -3,8 +3,9 @@ import AVFoundation
 import CoreBluetooth
 
 struct HostContentView: View {
+    
     @State private var selectedIndex = -1
-    @State private var vehicles: [Vehicle] = [.r1t, .r1s]
+    let vehicles: [Vehicle] = [.r1t, .r1s]
     
     var body: some View {
         NavigationView {
@@ -12,7 +13,7 @@ struct HostContentView: View {
                 VStack(spacing:0) {
                     ForEach(vehicles.indices) { index in
                         Button(action: { self.selectedIndex = index }){
-                             VehicleView(vehicle: self.$vehicles[index])
+                             VehicleView(vehicle: self.vehicles[index])
                                 .padding(.horizontal)
                                 .padding(.vertical, 8)
                                 .background(index == self.selectedIndex ? Color.black.opacity(0.08) : Color.white.opacity(0.02))

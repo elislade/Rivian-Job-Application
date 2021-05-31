@@ -3,8 +3,8 @@ import MapKit
 
 struct MapView {
     
-    @State var anno:MKAnnotation
-    @State var showMyLocation = true
+    let anno: MKAnnotation
+    let showMyLocation = true
     
     func makeView() -> MKMapView {
         let view = MKMapView()
