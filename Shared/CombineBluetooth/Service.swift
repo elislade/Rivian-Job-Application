@@ -3,11 +3,14 @@ import CoreBluetooth
 import Combine
 
 class Service: ObservableObject {
-    let service:CBService
-    let peripheral:Peripheral
     
-    @Published var includedServices:[Service] = []
-    @Published var characteristics:[Characteristic] = []
+    let service: CBService
+    weak var peripheral: Peripheral!
+    
+    @Published var includedServices: [Service] = []
+    @Published var characteristics: [Characteristic] = []
+    
+    private var watch: Set<AnyCancellable> = []
     
     init(_ service: CBService, peripheral: Peripheral) {
         self.service = service
@@ -20,33 +23,28 @@ class Service: ObservableObject {
         for c in characteristics { c.cleanup() }
     }
     
-    var incServicesPub:AnyCancellable?
-    func discoverIncServices(_ serviceUUIDS: [CBUUID]? = nil){
+    func discoverIncServices(_ serviceUUIDS: [CBUUID]? = nil) {
         peripheral.peripheral.discoverIncludedServices(serviceUUIDS, for: service)
-        if incServicesPub == nil {
-            incServicesPub = peripheral.delegate.didDiscoverIncludedServices
-                .filter({ $0.service.uuid == self.service.uuid })
-                .map({ $0.service.includedServices ?? [] })
-                .map({ $0.map { Service($0, peripheral: self.peripheral) } })
-                .assign(to: \.includedServices, on: self)
-        }
+        peripheral.delegate.didDiscoverIncludedServices
+            .filter({ $0.service.uuid == self.service.uuid })
+            .map({ $0.service.includedServices ?? [] })
+            .map({ $0.map { Service($0, peripheral: self.peripheral) } })
+            .assign(to: \.includedServices, on: self)
+            .store(in: &watch)
     }
     
-    var discoverPub:AnyCancellable?
     func discoverCharacteristics(withUUIDS: [CBUUID]? = nil) {
         peripheral.peripheral.discoverCharacteristics(withUUIDS, for: service)
-        if discoverPub == nil {
-            discoverPub = peripheral.delegate.didDiscoverCharateristicForService
-                .filter({ $0.service.uuid == self.service.uuid })
-                .sink {
-                    if let c = $0.service.characteristics {
-                        self.characteristics = c.map {
-                            Characteristic($0, service: self)
-                        }
+        peripheral.delegate.didDiscoverCharateristicForService
+            .filter({ $0.service.uuid == self.service.uuid })
+            .sink {
+                if let c = $0.service.characteristics {
+                    self.characteristics = c.map {
+                        Characteristic($0, service: self)
                     }
                 }
-        }
+            }.store(in: &watch)
     }
 }
 
-extension Service:Identifiable {}
+extension Service: Identifiable {}

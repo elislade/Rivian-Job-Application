@@ -5,7 +5,7 @@ import os
 
 class Peripheral: ObservableObject {
     
-    unowned let manager: CentralManager
+    weak var manager: CentralManager!
     let peripheral: CBPeripheral
     let delegate = CBPeripheralDelegateWrapper()
     
@@ -13,7 +13,9 @@ class Peripheral: ObservableObject {
     @Published var name: String = ""
     @Published var rssi: Int = 0
     
-    init(_ manager:CentralManager, peripheral: CBPeripheral) {
+    private var watch: Set<AnyCancellable> = []
+    
+    init(_ manager: CentralManager, peripheral: CBPeripheral) {
         self.manager = manager
         self.peripheral = peripheral
         self.name = peripheral.name ?? ""
@@ -32,33 +34,28 @@ class Peripheral: ObservableObject {
         cleanup()
     }
     
-    var nameChangePub:AnyCancellable?
-    func listenToName(){
-        nameChangePub = delegate.didUpdateName.assign(to: \.name, on: self)
+    func listenToName() {
+        delegate.didUpdateName
+            .assign(to: \.name, on: self)
+            .store(in: &watch)
     }
 
     func cleanup() {
-        guard case .connected = peripheral.state else { return }
-        
+        guard peripheral.state == .connected else { return }
         for service in services { service.cleanup() }
         disconnect()
     }
     
-    var servicesPub:AnyCancellable?
-    var modServicesPub:AnyCancellable?
-    func discoverServices(_ serviceUUIDS: [CBUUID]? = nil){
+    func discoverServices(_ serviceUUIDS: [CBUUID]? = nil) {
         peripheral.discoverServices(serviceUUIDS)
-        if servicesPub == nil {
-            servicesPub = delegate.didDiscoverServices.flatMap({
-                Just($0.0.map { Service($0, peripheral: self) })
-            }).assign(to: \.services, on: self)
-        }
+        delegate.didDiscoverServices
+            .flatMap({ Just($0.0.map { Service($0, peripheral: self) }) })
+            .assign(to: \.services, on: self)
+            .store(in: &watch)
         
-        if servicesPub == nil {
-            modServicesPub = delegate.didModifyServices.sink { _ in
-                self.discoverServices()
-            }
-        }
+        delegate.didModifyServices.sink { _ in
+            self.discoverServices()
+        }.store(in: &watch)
     }
 }
 
@@ -68,6 +65,6 @@ extension Peripheral: Hashable {
     }
     
     func hash(into hasher: inout Hasher) {
-        peripheral.hash(into: &hasher)
+        hasher.combine(peripheral)
     }
 }

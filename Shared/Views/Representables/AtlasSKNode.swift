@@ -33,7 +33,7 @@ class AtlasSKNode: SKSpriteNode {
                 textures.append(atlas.textureNamed(atlas.textureNames.sorted()[i]))
             }
             
-            var action = SKAction.animate(with: textures, timePerFrame: 0.04)
+            var action = SKAction.animate(with: textures, timePerFrame: 0.0333)
             if start > end {
                 action = action.reversed()
             }

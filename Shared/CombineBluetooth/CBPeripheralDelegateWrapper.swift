@@ -9,9 +9,9 @@ class CBPeripheralDelegateWrapper: NSObject, CBPeripheralDelegate {
     
     let didUpdateName = PassthroughSubject<String, Never>()
     let isReadyToWriteWithoutResponse = PassthroughSubject<Void, Never>()
-    let didDiscoverServices = PassthroughSubject<(services:[CBService], error:Error?), Never>()
-    let didReadRSSI = PassthroughSubject<(rssi: NSNumber, error:Error?), Never>()
-    let didOpenChannel = PassthroughSubject<(channel: CBL2CAPChannel?, error:Error?), Never>()
+    let didDiscoverServices = PassthroughSubject<(services: [CBService], error: Error?), Never>()
+    let didReadRSSI = PassthroughSubject<(rssi: NSNumber, error: Error?), Never>()
+    let didOpenChannel = PassthroughSubject<(channel: CBL2CAPChannel?, error: Error?), Never>()
     let didModifyServices = PassthroughSubject<[CBService], Never>()
 
     func peripheralDidUpdateName(_ peripheral: CBPeripheral) {
@@ -41,8 +41,8 @@ class CBPeripheralDelegateWrapper: NSObject, CBPeripheralDelegate {
     
     // MARK: - Services
     
-    let didDiscoverCharateristicForService = PassthroughSubject<(service:CBService, error:Error?), Never>()
-    let didDiscoverIncludedServices = PassthroughSubject<(service:CBService, error:Error?), Never>()
+    let didDiscoverCharateristicForService = PassthroughSubject<(service: CBService, error: Error?), Never>()
+    let didDiscoverIncludedServices = PassthroughSubject<(service: CBService, error: Error?), Never>()
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         didDiscoverCharateristicForService.send((service, error))
@@ -55,10 +55,10 @@ class CBPeripheralDelegateWrapper: NSObject, CBPeripheralDelegate {
     
     // MARK: - Characteristics
     
-    let didWriteValueForCharacteristic = PassthroughSubject<(char:CBCharacteristic, error:Error?), Never>()
-    let didUpdateValueForCharacteristic = PassthroughSubject<(char:CBCharacteristic, error:Error?), Never>()
-    let didDiscoverDescriptorsForCharacteristic = PassthroughSubject<(char:CBCharacteristic, error:Error?), Never>()
-    let didUpdateNotificationStateForCharacteristic = PassthroughSubject<(char:CBCharacteristic, error:Error?), Never>()
+    let didWriteValueForCharacteristic = PassthroughSubject<(char:CBCharacteristic, error: Error?), Never>()
+    let didUpdateValueForCharacteristic = PassthroughSubject<(char:CBCharacteristic, error: Error?), Never>()
+    let didDiscoverDescriptorsForCharacteristic = PassthroughSubject<(char:CBCharacteristic, error: Error?), Never>()
+    let didUpdateNotificationStateForCharacteristic = PassthroughSubject<(char:CBCharacteristic, error: Error?), Never>()
     
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         didWriteValueForCharacteristic.send((characteristic, error))
@@ -79,8 +79,8 @@ class CBPeripheralDelegateWrapper: NSObject, CBPeripheralDelegate {
     
     // MARK: - Descriptors
     
-    let didWriteValueForDescriptor = PassthroughSubject<(desc:CBDescriptor, error:Error?), Never>()
-    let didUpdateValueForDescriptor = PassthroughSubject<(desc:CBDescriptor, error:Error?), Never>()
+    let didWriteValueForDescriptor = PassthroughSubject<(desc: CBDescriptor, error: Error?), Never>()
+    let didUpdateValueForDescriptor = PassthroughSubject<(desc: CBDescriptor, error: Error?), Never>()
     
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: Error?) {
         didWriteValueForDescriptor.send((descriptor, error))

@@ -8,15 +8,15 @@ class CBCentralManagerDelegateWrapper: NSObject, CBCentralManagerDelegate {
     // MARK: - Manager
     
     let didUpdateState = PassthroughSubject<CBManagerState, Never>()
-    let willRestoreState = PassthroughSubject<[String:Any], Never>()
+    let willRestoreState = PassthroughSubject<[String: Any], Never>()
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         didUpdateState.send(central.state)
     }
     
-    //    func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
-    //        willRestoreState.send(dict)
-    //    }
+//    func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
+//        willRestoreState.send(dict)
+//    }
     
     
     // MARK: - Peripheral
@@ -24,7 +24,7 @@ class CBCentralManagerDelegateWrapper: NSObject, CBCentralManagerDelegate {
     let didConnectPeripheral = PassthroughSubject<CBPeripheral, Never>()
     let didFailToConnectPeripheral = PassthroughSubject<(CBPeripheral, Error?), Never>()
     let didDisconnectPeripheral = PassthroughSubject<(CBPeripheral, Error?), Never>()
-    let didDiscoverPeripheral = PassthroughSubject<(peripheral: CBPeripheral, advert:[String:Any], rssi:NSNumber), Never>()
+    let didDiscoverPeripheral = PassthroughSubject<(peripheral: CBPeripheral, advert: [String: Any], rssi: NSNumber), Never>()
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
        didConnectPeripheral.send(peripheral)

@@ -2,18 +2,20 @@ import Foundation
 import CoreBluetooth
 import Combine
 
-class Characteristic:ObservableObject {
-    let characteristic:CBCharacteristic
-    let service:Service
+class Characteristic: ObservableObject {
     
-    var canSendWriteWithoutResponse:Bool {
+    let characteristic: CBCharacteristic
+    
+    weak var service: Service!
+    
+    var canSendWriteWithoutResponse: Bool {
         service.peripheral.peripheral.canSendWriteWithoutResponse
     }
     
-    @Published var descriptors:[Descriptor] = []
-    @Published var value:Data?
+    @Published var descriptors: [Descriptor] = []
+    @Published var value: Data?
     
-    init(_ char:CBCharacteristic, service:Service) {
+    init(_ char: CBCharacteristic, service: Service) {
         self.characteristic = char
         self.service = service
         self.discoverDescriptors()
@@ -31,7 +33,7 @@ class Characteristic:ObservableObject {
         }
     }
     
-    private var discoverPub:AnyCancellable?
+    private var discoverPub: AnyCancellable?
     func discoverDescriptors() {
         service.peripheral.peripheral.discoverDescriptors(for: characteristic)
         
@@ -40,20 +42,20 @@ class Characteristic:ObservableObject {
                 .filter({ $0.char.uuid == self.characteristic.uuid })
                 .sink {
                     if let d = $0.char.descriptors {
-                        self.descriptors = d.map { Descriptor($0, characteristic:self) }
+                        self.descriptors = d.map { Descriptor($0, characteristic: self) }
                     }
                 }
         }
     }
     
-    func write(data:Data, type:CBCharacteristicWriteType) {
+    func write(data: Data, type: CBCharacteristicWriteType) {
         let size = service.peripheral.peripheral.maximumWriteValueLength(for: type)
         for dataChunk in data.chunked(to: size) {
             service.peripheral.peripheral.writeValue(dataChunk, for: characteristic, type: type)
         }
     }
     
-    private var didWritePub:AnyCancellable?
+    private var didWritePub: AnyCancellable?
     func listenToWrite() {
         if didWritePub == nil {
             didWritePub = service.peripheral.delegate.didWriteValueForCharacteristic
@@ -72,7 +74,7 @@ class Characteristic:ObservableObject {
     
     private var tempData = Data()
     
-    private var updateValuePub:AnyCancellable?
+    private var updateValuePub: AnyCancellable?
     func listenToValueUpdate() {
         if updateValuePub == nil {
             updateValuePub = service.peripheral.delegate.didUpdateValueForCharacteristic
@@ -103,6 +105,6 @@ class Characteristic:ObservableObject {
 
 }
 
-extension Characteristic:Identifiable {
-    var id:CBUUID { characteristic.uuid }
+extension Characteristic: Identifiable {
+    var id: CBUUID { characteristic.uuid }
 }

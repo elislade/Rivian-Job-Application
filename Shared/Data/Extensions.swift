@@ -38,9 +38,6 @@ extension CGSize {
 
 extension ScannedPeripheral {
     func asVehicle() -> Vehicle? {
-        if let name = advertisment[CBAdvertisementDataLocalNameKey] as? String {
-            return Vehicle.get(from: name)
-        }
-        return nil
+        Vehicle.get(from: name ?? "")
     }
 }

@@ -13,20 +13,13 @@
 		1CD1FB8E245C91BB0069BB8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FB8D245C91BB0069BB8B /* Preview Assets.xcassets */; };
 		1CD1FB91245C91BB0069BB8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FB8F245C91BB0069BB8B /* LaunchScreen.storyboard */; };
 		1CD1FBAA245C92650069BB8B /* VehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB98245C92640069BB8B /* VehicleView.swift */; };
-		1CD1FBAB245C92650069BB8B /* CharacteristicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB99245C92640069BB8B /* CharacteristicView.swift */; };
-		1CD1FBAC245C92650069BB8B /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9A245C92640069BB8B /* ServiceView.swift */; };
-		1CD1FBAD245C92650069BB8B /* DescriptorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9B245C92640069BB8B /* DescriptorView.swift */; };
 		1CD1FBAE245C92650069BB8B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9C245C92640069BB8B /* MapView.swift */; };
 		1CD1FBAF245C92650069BB8B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9D245C92640069BB8B /* RootView.swift */; };
 		1CD1FBB0245C92650069BB8B /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FB9E245C92640069BB8B /* ActivityIndicator.swift */; };
-		1CD1FBB1245C92650069BB8B /* LocationCharacteristicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA0245C92640069BB8B /* LocationCharacteristicView.swift */; };
-		1CD1FBB3245C92650069BB8B /* DefaultCharacteristicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA2245C92650069BB8B /* DefaultCharacteristicView.swift */; };
-		1CD1FBB4245C92650069BB8B /* ActionCharacteristicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA3245C92650069BB8B /* ActionCharacteristicView.swift */; };
 		1CD1FBB5245C92650069BB8B /* TextureAtlasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA4245C92650069BB8B /* TextureAtlasView.swift */; };
 		1CD1FBB6245C92650069BB8B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA5245C92650069BB8B /* HeaderView.swift */; };
-		1CD1FBB7245C92650069BB8B /* PeripheralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA6245C92650069BB8B /* PeripheralView.swift */; };
+		1CD1FBB7245C92650069BB8B /* ConnectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA6245C92650069BB8B /* ConnectedView.swift */; };
 		1CD1FBB8245C92650069BB8B /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA7245C92650069BB8B /* LayoutView.swift */; };
-		1CD1FBB9245C92650069BB8B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA8245C92650069BB8B /* ContentView.swift */; };
 		1CD1FBBD245C92BB0069BB8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1FBBC245C92BB0069BB8B /* Assets.xcassets */; };
 		1CD1FBC6245C93900069BB8B /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBBF245C93900069BB8B /* Vehicle.swift */; };
 		1CD1FBC7245C93900069BB8B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBC0245C93900069BB8B /* Extensions.swift */; };
@@ -91,11 +84,15 @@
 		1CF1201E26646F9900A36986 /* AtlasSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1201C26646F9900A36986 /* AtlasSKNode.swift */; };
 		1CF1202026647D2300A36986 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1201F26647D2300A36986 /* AudioManager.swift */; };
 		1CF1202126647D2300A36986 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1201F26647D2300A36986 /* AudioManager.swift */; };
-		1CF12023266498E300A36986 /* VehicleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF12022266498E300A36986 /* VehicleCard.swift */; };
+		1CF12023266498E300A36986 /* ActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF12022266498E300A36986 /* ActionsView.swift */; };
 		1CF1202A2664F1A200A36986 /* RadiatingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF120292664F1A200A36986 /* RadiatingCircles.swift */; };
 		1CF1202B26650F1900A36986 /* LayoutContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBED245C948A0069BB8B /* LayoutContainer.swift */; };
 		1CF1202C26650F2F00A36986 /* RadiatingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF120292664F1A200A36986 /* RadiatingCircles.swift */; };
 		1CF1202D26650F4500A36986 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA7245C92650069BB8B /* LayoutView.swift */; };
+		1CF1203126658B3900A36986 /* RivianLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1203026658B3900A36986 /* RivianLink.swift */; };
+		1CF120362665951500A36986 /* RivianScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF120352665951500A36986 /* RivianScanner.swift */; };
+		1CF1203826659C3100A36986 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1203726659C3100A36986 /* LocationView.swift */; };
+		1CF1203A2666F92200A36986 /* VehicleLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF120392666F92200A36986 /* VehicleLinkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,20 +104,13 @@
 		1CD1FB90245C91BB0069BB8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CD1FB92245C91BB0069BB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CD1FB98245C92640069BB8B /* VehicleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
-		1CD1FB99245C92640069BB8B /* CharacteristicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicView.swift; sourceTree = "<group>"; };
-		1CD1FB9A245C92640069BB8B /* ServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
-		1CD1FB9B245C92640069BB8B /* DescriptorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptorView.swift; sourceTree = "<group>"; };
 		1CD1FB9C245C92640069BB8B /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1CD1FB9D245C92640069BB8B /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1CD1FB9E245C92640069BB8B /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
-		1CD1FBA0245C92640069BB8B /* LocationCharacteristicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCharacteristicView.swift; sourceTree = "<group>"; };
-		1CD1FBA2245C92650069BB8B /* DefaultCharacteristicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCharacteristicView.swift; sourceTree = "<group>"; };
-		1CD1FBA3245C92650069BB8B /* ActionCharacteristicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCharacteristicView.swift; sourceTree = "<group>"; };
 		1CD1FBA4245C92650069BB8B /* TextureAtlasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureAtlasView.swift; sourceTree = "<group>"; };
 		1CD1FBA5245C92650069BB8B /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		1CD1FBA6245C92650069BB8B /* PeripheralView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralView.swift; sourceTree = "<group>"; };
+		1CD1FBA6245C92650069BB8B /* ConnectedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedView.swift; sourceTree = "<group>"; };
 		1CD1FBA7245C92650069BB8B /* LayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
-		1CD1FBA8245C92650069BB8B /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1CD1FBBC245C92BB0069BB8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CD1FBBF245C93900069BB8B /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		1CD1FBC0245C93900069BB8B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -161,8 +151,12 @@
 		1CD1FC3C245C98440069BB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CF1201C26646F9900A36986 /* AtlasSKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasSKNode.swift; sourceTree = "<group>"; };
 		1CF1201F26647D2300A36986 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
-		1CF12022266498E300A36986 /* VehicleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCard.swift; sourceTree = "<group>"; };
+		1CF12022266498E300A36986 /* ActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsView.swift; sourceTree = "<group>"; };
 		1CF120292664F1A200A36986 /* RadiatingCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiatingCircles.swift; sourceTree = "<group>"; };
+		1CF1203026658B3900A36986 /* RivianLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RivianLink.swift; sourceTree = "<group>"; };
+		1CF120352665951500A36986 /* RivianScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RivianScanner.swift; sourceTree = "<group>"; };
+		1CF1203726659C3100A36986 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		1CF120392666F92200A36986 /* VehicleLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleLinkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,32 +247,21 @@
 			children = (
 				1CF120282664E9FF00A36986 /* Helpers */,
 				1CD1FB9D245C92640069BB8B /* RootView.swift */,
-				1CF12022266498E300A36986 /* VehicleCard.swift */,
+				1CF12022266498E300A36986 /* ActionsView.swift */,
+				1CF1203726659C3100A36986 /* LocationView.swift */,
 				1CD1FBA5245C92650069BB8B /* HeaderView.swift */,
-				1CD1FBA8245C92650069BB8B /* ContentView.swift */,
-				1CD1FBA6245C92650069BB8B /* PeripheralView.swift */,
-				1CD1FB9A245C92640069BB8B /* ServiceView.swift */,
-				1CD1FB9B245C92640069BB8B /* DescriptorView.swift */,
-				1CD1FB9F245C92640069BB8B /* Characteristics */,
+				1CF120392666F92200A36986 /* VehicleLinkView.swift */,
+				1CD1FBA6245C92650069BB8B /* ConnectedView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		1CD1FB9F245C92640069BB8B /* Characteristics */ = {
-			isa = PBXGroup;
-			children = (
-				1CD1FB99245C92640069BB8B /* CharacteristicView.swift */,
-				1CD1FBA2245C92650069BB8B /* DefaultCharacteristicView.swift */,
-				1CD1FBA0245C92640069BB8B /* LocationCharacteristicView.swift */,
-				1CD1FBA3245C92650069BB8B /* ActionCharacteristicView.swift */,
-			);
-			path = Characteristics;
 			sourceTree = "<group>";
 		};
 		1CD1FBBE245C93900069BB8B /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				1CD1FBBF245C93900069BB8B /* Vehicle.swift */,
+				1CF1203026658B3900A36986 /* RivianLink.swift */,
+				1CF120352665951500A36986 /* RivianScanner.swift */,
 				1CD1FBC0245C93900069BB8B /* Extensions.swift */,
 				1CD1FBC1245C93900069BB8B /* Vehicle+Action.swift */,
 				1CD1FBC3245C93900069BB8B /* Structs.swift */,
@@ -544,7 +527,6 @@
 				1CD1FBEB245C94610069BB8B /* CLLocationManagerDelegateWrapper.swift in Sources */,
 				1CD1FBCA245C93900069BB8B /* Structs.swift in Sources */,
 				1CD1FBDA245C93F30069BB8B /* Peripheral.swift in Sources */,
-				1CD1FBB4245C92650069BB8B /* ActionCharacteristicView.swift in Sources */,
 				1CD1FB85245C91B90069BB8B /* AppDelegate.swift in Sources */,
 				1CD1FBB5245C92650069BB8B /* TextureAtlasView.swift in Sources */,
 				1CD1FBDF245C93F30069BB8B /* CBCentralManagerDelegateWrapper.swift in Sources */,
@@ -555,19 +537,17 @@
 				1CD1FBEA245C94610069BB8B /* CL+DataCodable.swift in Sources */,
 				1CD1FBEE245C948A0069BB8B /* LayoutContainer.swift in Sources */,
 				1CF1202A2664F1A200A36986 /* RadiatingCircles.swift in Sources */,
-				1CD1FBAD245C92650069BB8B /* DescriptorView.swift in Sources */,
-				1CD1FBB9245C92650069BB8B /* ContentView.swift in Sources */,
+				1CF120362665951500A36986 /* RivianScanner.swift in Sources */,
 				1CD1FBDB245C93F30069BB8B /* CBPeripheralDelegateWrapper.swift in Sources */,
 				1CD1FBEC245C94610069BB8B /* CombineLocation.swift in Sources */,
 				1CD1FBC6245C93900069BB8B /* Vehicle.swift in Sources */,
-				1CF12023266498E300A36986 /* VehicleCard.swift in Sources */,
+				1CF12023266498E300A36986 /* ActionsView.swift in Sources */,
 				1CD1FBB6245C92650069BB8B /* HeaderView.swift in Sources */,
-				1CD1FBAC245C92650069BB8B /* ServiceView.swift in Sources */,
-				1CD1FBB7245C92650069BB8B /* PeripheralView.swift in Sources */,
+				1CF1203126658B3900A36986 /* RivianLink.swift in Sources */,
+				1CD1FBB7245C92650069BB8B /* ConnectedView.swift in Sources */,
 				1CD1FBDD245C93F30069BB8B /* Service.swift in Sources */,
 				1CD1FBDC245C93F30069BB8B /* CBPeripheralManagerDelegateWrapper.swift in Sources */,
 				1CD1FBE0245C93F30069BB8B /* Descriptor.swift in Sources */,
-				1CD1FBB3245C92650069BB8B /* DefaultCharacteristicView.swift in Sources */,
 				1CD1FBE3245C93F30069BB8B /* ScannedPeripheral.swift in Sources */,
 				1CD1FBCB245C93900069BB8B /* Vehicle+CB.swift in Sources */,
 				1CF1201D26646F9900A36986 /* AtlasSKNode.swift in Sources */,
@@ -575,8 +555,8 @@
 				1CD1FBAF245C92650069BB8B /* RootView.swift in Sources */,
 				1CD1FBB0245C92650069BB8B /* ActivityIndicator.swift in Sources */,
 				1CD1FB87245C91B90069BB8B /* SceneDelegate.swift in Sources */,
-				1CD1FBAB245C92650069BB8B /* CharacteristicView.swift in Sources */,
-				1CD1FBB1245C92650069BB8B /* LocationCharacteristicView.swift in Sources */,
+				1CF1203826659C3100A36986 /* LocationView.swift in Sources */,
+				1CF1203A2666F92200A36986 /* VehicleLinkView.swift in Sources */,
 				1CF1202026647D2300A36986 /* AudioManager.swift in Sources */,
 				1CD1FBDE245C93F30069BB8B /* Central.swift in Sources */,
 				1CD1FBAA245C92650069BB8B /* VehicleView.swift in Sources */,

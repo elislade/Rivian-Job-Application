@@ -1,4 +1,6 @@
 import Foundation
+import Combine
+import CoreLocation
 
 class Vehicle: ObservableObject {
     
@@ -6,19 +8,33 @@ class Vehicle: ObservableObject {
     let uuidString: String
     let imageName: String
     
+    private var link: RivianLink?
+    
     init(name: String, uuidString: String, imageName: String){
         self.name = name
         self.uuidString = uuidString
         self.imageName = imageName
+        self.link = RivianLink(self)
     }
     
-    @Published var isSetup = false
+    @Published var isConnected = false
     @Published var isAdvert = false
     @Published var actions: [Vehicle.Action] = []
-    @Published var scannedPeriph: ScannedPeripheral?
-    @Published var connectedPeriph: Peripheral?
+    @Published var location: CLLocation?
     
+    func send(action: Action) {
+        link?.send(action: action)
+    }
+    
+    func disconnect() {
+        link?.disconnect()
+    }
+    
+    func connect() {
+        link?.connect()
+    }
 }
+
 
 extension Vehicle: Hashable, Identifiable {
     static func == (lhs: Vehicle, rhs: Vehicle) -> Bool {

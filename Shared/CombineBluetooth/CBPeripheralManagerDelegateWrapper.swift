@@ -11,7 +11,7 @@ class CBPeripheralManagerDelegateWrapper: NSObject, CBPeripheralManagerDelegate 
     let isReadyToUpdateSubscribers = PassthroughSubject<Void, Never>()
     let didStartAdvertising = PassthroughSubject<Error?, Never>()
     let willRestoreState = PassthroughSubject<[String:Any], Never>()
-    let didAddService = PassthroughSubject<(service:CBService, error:Error?), Never>()
+    let didAddService = PassthroughSubject<(service: CBService, error: Error?), Never>()
     
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
         didUpdateState.send(peripheral.state)
@@ -36,8 +36,8 @@ class CBPeripheralManagerDelegateWrapper: NSObject, CBPeripheralManagerDelegate 
     
     // MARK: - Central
     
-    let didSubscribeToCharacteristic = PassthroughSubject<(central:CBCentral, char:CBCharacteristic), Never>()
-    let didUnsubscribeFromCharacteristic = PassthroughSubject<(central:CBCentral, char:CBCharacteristic), Never>()
+    let didSubscribeToCharacteristic = PassthroughSubject<(central: CBCentral, char: CBCharacteristic), Never>()
+    let didUnsubscribeFromCharacteristic = PassthroughSubject<(central: CBCentral, char: CBCharacteristic), Never>()
     
     func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic) {
         didSubscribeToCharacteristic.send((central, characteristic))
@@ -64,9 +64,9 @@ class CBPeripheralManagerDelegateWrapper: NSObject, CBPeripheralManagerDelegate 
     
     // MARK: - L2CAP
     
-    let didOpenChannel = PassthroughSubject<(channel: CBL2CAPChannel?, error:Error?), Never>()
-    let didPublishL2CAPChannel = PassthroughSubject<(channel: CBL2CAPPSM, error:Error?), Never>()
-    let didUnpublishL2CAPChannel = PassthroughSubject<(channel: CBL2CAPPSM, error:Error?), Never>()
+    let didOpenChannel = PassthroughSubject<(channel: CBL2CAPChannel?, error: Error?), Never>()
+    let didPublishL2CAPChannel = PassthroughSubject<(channel: CBL2CAPPSM, error: Error?), Never>()
+    let didUnpublishL2CAPChannel = PassthroughSubject<(channel: CBL2CAPPSM, error: Error?), Never>()
 
     func peripheralManager(_ peripheral: CBPeripheralManager, didOpen channel: CBL2CAPChannel?, error: Error?) {
         didOpenChannel.send((channel, error))

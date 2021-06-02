@@ -4,31 +4,31 @@ import Combine
 
 class Central {
     
-    unowned let manager:PeripheralManager
-    let central:CBCentral
+    weak var manager: PeripheralManager!
+    let central: CBCentral
     
-    var characteristics:[CBMutableCharacteristic] = []
+    var characteristics: [CBMutableCharacteristic] = []
     
-    init(manager:PeripheralManager, central:CBCentral){
+    init(manager: PeripheralManager, central: CBCentral) {
         self.manager = manager
         self.central = central
         listenToReady()
     }
     
-    private var readyPub:AnyCancellable?
+    private var readyPub: AnyCancellable?
     func listenToReady() {
         readyPub = manager.delegate.isReadyToUpdateSubscribers.sink {
             self.processQueue()
         }
     }
     
-    func send(_ data:Data, to char:CBMutableCharacteristic) {
+    func send(_ data: Data, to char: CBMutableCharacteristic) {
         let size = central.maximumUpdateValueLength
         sendDataQueue.append((char, data.chunked(to: size)))
         processQueue()
     }
     
-    private var sendDataQueue:[(char: CBMutableCharacteristic, chunks: [Data])] = []
+    private var sendDataQueue: [(char: CBMutableCharacteristic, chunks: [Data])] = []
     
     private func processQueue() {
         if !self.sendDataQueue.isEmpty {
@@ -37,7 +37,7 @@ class Central {
             
             if let data = self.sendDataQueue[0].chunks.first {
                 let didSend = self.manager.manager.updateValue(
-                    data, for: first.char, onSubscribedCentrals:[ self.central ]
+                    data, for: first.char, onSubscribedCentrals: [self.central]
                 )
                 
                 if didSend {
