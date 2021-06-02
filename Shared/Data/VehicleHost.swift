@@ -10,8 +10,8 @@ class VehicleHost: Vehicle, ObservableObject {
     @Published var isConnected: Bool = false
     @Published var actions: [Action] = []
     
-    override init(name: String, uuidString: String, imageName: String){
-        super.init(name: name, uuidString: uuidString, imageName: imageName)
+    override init(model: Model, uuidString: String){
+        super.init(model: model, uuidString: uuidString)
         self.link = RivianHostLink(self)
     }
     
@@ -25,6 +25,7 @@ class VehicleHost: Vehicle, ObservableObject {
     }
     
     func setup() {
+        if isSetup { return }
         link?.setup()
     }
     

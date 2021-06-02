@@ -62,14 +62,14 @@ class RivianClientLink {
     }
     
     private func discoverServices() {
-        connectedPeriph?.discoverServices([ .main_id(for: vehicle) ])
+        connectedPeriph?.discoverServices([ .main_id(for: vehicle.model) ])
     }
     
     private func discoverCharacteristics() {
         guard let s = services.first else { return }
         
-        let act: CBUUID = .main_action_id(for: vehicle)
-        let loc: CBUUID = .main_location_id(for: vehicle)
+        let act: CBUUID = .main_action_id(for: vehicle.model)
+        let loc: CBUUID = .main_location_id(for: vehicle.model)
         
         s.discoverCharacteristics(withUUIDS: [act, loc])
         s.$characteristics.sink{ chars in

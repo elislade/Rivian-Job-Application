@@ -10,8 +10,8 @@ class AtlasSKNode: SKSpriteNode {
     init(name: String) {
         self.atlas = SKTextureAtlas(named: name)
         self.atlas.preload {}
-        let t = self.atlas.textureNamed(self.atlas.textureNames[0])
-        super.init(texture: t, color: .clear, size: CGSize(width: 50, height: 50))
+        //let t = self.atlas.textureNamed(self.atlas.textureNames[0])
+        super.init(texture: nil, color: .clear, size: CGSize(width: 50, height: 50))
         self.set(percent: 0)
     }
     
@@ -21,7 +21,7 @@ class AtlasSKNode: SKSpriteNode {
     }
     
     func set(percent complete: CGFloat, animated: Bool = false) {
-        if isAnimating { return }
+        if isAnimating || atlas.textureNames.isEmpty { return }
         
         let start = index(for: currentComplete)
         let end = index(for: complete)

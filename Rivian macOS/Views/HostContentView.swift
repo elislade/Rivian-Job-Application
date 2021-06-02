@@ -8,46 +8,53 @@ struct HostContentView: View {
     let vehicles: [VehicleHost] = [.r1tHost, .r1sHost]
     
     func select(_ index: Int){
-        withAnimation(.spring().speed(0.5)) {
+        withAnimation(.spring()) {
             selectedIndex = index
         }
     }
     
+    var setupVehicle: VehicleHost? {
+        vehicles.first(where: { $0.isSetup })
+    }
+    
     var body: some View {
-        HSplitView {
+        VStack {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 300, maximum: 800), spacing: 20, alignment: .center)]){
-                    ForEach(vehicles.indices) { index in
-                        Button(action: { select(index) }){
-                             VehicleView(vehicle: self.vehicles[index])
-                                .background(index == self.selectedIndex ? Color("riv_yellow") : Color.white.opacity(0.02))
-                                .cornerRadius(15)
-                                .overlay(Color.white.opacity(0.001))
+                    ForEach(vehicles) { v in
+                        if v.isSetup || selectedIndex < 0 {
+                            Button(action: v.setup){
+                                 VehicleView(vehicle: v)
+                                    .background(v.isSetup ? Color("riv_yellow").opacity(0.3) : Color.clear)
+                                    .cornerRadius(15)
+                                    .overlay(Color.white.opacity(0.001))
+                            }//.disabled(selectedIndex >= 0)
                         }
                     }
                 }
-                .padding(.horizontal)
+                .padding()
                 .buttonStyle(PlainButtonStyle())
                 
             }
-            .frame(minWidth: 320)
             .background(ZStack {
                 Color.white
                 Image("topo").resizable().scaledToFill().opacity(0.8)
             }.edgesIgnoringSafeArea(.all))
             .colorScheme(.light)
+            .zIndex(1)
             
-            if selectedIndex >= 0 {
-                SelectedVehicle( vehicle: vehicles[selectedIndex] )
-                    .frame(minWidth: 500)
+            if setupVehicle != nil {
+                SelectedVehicle(vehicle: setupVehicle!)
                     .colorScheme(.dark)
-                    .edgesIgnoringSafeArea(.all)
+                    .background(ZStack {
+                        LinearGradient.riv_blue
+                        Image("topo").resizable().scaledToFill()
+                    })
+                    .clipped()
+                    .zIndex(2)
+                    .transition(.move(edge: .bottom))
             }
-        }
-        .background(ZStack {
-            LinearGradient.riv_blue
-            Image("topo").resizable().scaledToFill()
-        }.edgesIgnoringSafeArea(.all))
+        }.frame(width: 600)
     }
 }
 

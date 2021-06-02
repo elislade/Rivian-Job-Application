@@ -1,26 +1,36 @@
 import SwiftUI
+import CoreLocation
 
 struct ConnectedView: View {
 
     @ObservedObject var vehicle: VehicleClient
 
+    @State private var location: CLLocation?
+    
     var body: some View {
         VStack(spacing: 0) {
-  
             Button(action: vehicle.disconnect) {
                 Text("DISCONNECT")
-                    .font(.footnote.bold())
-                    .foregroundColor(Color("riv_yellow"))
+                    .font(.footnote.weight(.heavy))
+                    .foregroundColor(.white)
                     .padding(10)
-                    .padding(.horizontal)
+                    .padding(.horizontal, 12)
                     .background(Capsule())
-                    .foregroundColor(Color("riv_blue").opacity(0.6))
+                    .foregroundColor(Color("riv_blue").opacity(0.4))
             }
             
             VStack(spacing: 16){
-                if let loc = vehicle.location {
-                    LocationView(location: loc)
-                }
+                ZStack {
+                    Color.clear
+                    if location != nil {
+                        LocationView(location: location!)
+                    } else {
+                        VStack(spacing: 20){
+                            ActivityIndicator()
+                            Text("Loading location...")
+                        }
+                    }
+                }.aspectRatio(1.6, contentMode: .fit)
                 
                 ActionsView(actions: Vehicle.Action.allCases, perform: vehicle.send)
             }
@@ -29,6 +39,10 @@ struct ConnectedView: View {
             .colorScheme(.dark)
             .cornerRadius(24)
             .padding(20)
-        }
+        }.onReceive(vehicle.$location, perform: { loc in
+            withAnimation(.easeInOut){
+                self.location = loc
+            }
+        })
     }
 }

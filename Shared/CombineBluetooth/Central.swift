@@ -50,3 +50,13 @@ class Central {
         }
     }
 }
+
+extension Central: Hashable {
+    static func == (lhs: Central, rhs: Central) -> Bool {
+        lhs.central == rhs.central
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(central)
+    }
+}

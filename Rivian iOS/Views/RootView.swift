@@ -18,7 +18,7 @@ struct RootView: View {
     }
     
     func toggleSearching() {
-        withAnimation(.easeOut(duration: 0.9)){
+        withAnimation(.easeInOut(duration: 0.9)){
             state = state == .searching ? .loaded : .searching
         }
     }
@@ -31,7 +31,11 @@ struct RootView: View {
             
             if state == .loaded && firstVehicle != nil {
                 VehicleLinkView(vehicle: firstVehicle!)
-                    .transition(.offset(y: 700))
+                    .transition(
+                        .scale(scale: 0.8)
+                            .combined(with: .opacity)
+                            .combined(with: .offset(y: 350))
+                    )
             }
         }
         .background(
@@ -58,7 +62,7 @@ struct RootView: View {
         .edgesIgnoringSafeArea(.all)
         .onReceive(RivianScanner.shared.$peripherals, perform: { p in
             if let f = p.first {
-                withAnimation(.easeOut(duration: 2)){
+                withAnimation(.easeInOut(duration: 1.3)){
                     firstVehicle = f.asVehicleClient
                     state = .loaded
                 }

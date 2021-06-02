@@ -8,8 +8,8 @@ class PeripheralManager: ObservableObject {
     
     let manager = CBPeripheralManager()
     let delegate = CBPeripheralManagerDelegateWrapper()
-    var centrals: [Central] = []
     
+    @Published var centrals: Set<Central> = []
     @Published var isAdvertising = false
     @Published var state: CBManagerState = .unknown
     
@@ -25,13 +25,13 @@ class PeripheralManager: ObservableObject {
 
     func listenToSubscribers() {
         delegate.didSubscribeToCharacteristic.sink { central, chars in
-            if !self.centrals.contains(where: { $0.central == central }) {
-                self.centrals.append(Central(manager: self, central: central))
-            }
+            self.centrals.update(with: Central(manager: self, central: central))
         }.store(in: &watch)
         
         delegate.didUnsubscribeFromCharacteristic.sink { central, char in
-            self.centrals.removeAll(where: { $0.central.identifier == central.identifier })
+            if let index = self.centrals.firstIndex(where: {$0.central.identifier == central.identifier} ) {
+                self.centrals.remove(at: index)
+            }
         }.store(in: &watch)
     }
     

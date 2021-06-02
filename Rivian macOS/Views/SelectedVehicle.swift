@@ -1,5 +1,5 @@
 import SwiftUI
-import CoreBluetooth
+import MapKit
 
 struct SelectedVehicle: View {
     
@@ -24,9 +24,9 @@ struct SelectedVehicle: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                Text(vehicle.name).font(.title.bold())
                 Spacer()
                 header
+                Spacer()
             }.padding([.horizontal, .top])
             
             if locManager.location != nil {
@@ -34,6 +34,9 @@ struct SelectedVehicle: View {
                     .cornerRadius(5)
                     .overlay(Button("Send Location", action: sendLocation).padding(), alignment: .topTrailing)
                     .padding()
+                    .onAppear{
+                        vehicle.update(location: locManager.location!)
+                    }
             }
             
             ActionsView(vehicle: vehicle, actions: vehicle.actions)

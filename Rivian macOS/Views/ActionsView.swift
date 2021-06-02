@@ -8,11 +8,15 @@ struct ActionsView: View {
     let actions: [Vehicle.Action]
     
     func cell(for action: Vehicle.Action) -> some View {
-        VStack(spacing: 20) {
-            action.image.imageScale(.large).frame(width: 40)
+        VStack(spacing: 12) {
+            action.image.font(.title2.weight(.heavy))
             Text(action.description).fontWeight(.bold).lineLimit(1)
             Button("Send Back", action: { vehicle.send(action) })
-        }.padding(.vertical, 10)
+        }
+        .foregroundColor(Color("riv_blue"))
+        .padding(10)
+        .background(Color("riv_yellow"))
+        .cornerRadius(14)
     }
     
     var body: some View {

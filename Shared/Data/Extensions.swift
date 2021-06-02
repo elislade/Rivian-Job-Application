@@ -38,6 +38,14 @@ extension CGSize {
 
 extension ScannedPeripheral {
     var asVehicleClient: VehicleClient? {
-        Vehicle.getClient(from: name ?? "")
+        guard let name = name else { return nil }
+        
+        for model in Vehicle.Model.allCases {
+            if name.lowercased().contains(model.rawValue) {
+                return Vehicle.getClient(from: model)
+            }
+        }
+        
+        return nil
     }
 }

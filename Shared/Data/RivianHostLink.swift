@@ -15,37 +15,49 @@ class RivianHostLink {
         self.listenForActions()
         self.manager.reqValue = { char_id in
             guard
-                char_id == .main_location_id(for: vehicle),
+                char_id == .main_location_id(for: vehicle.model),
                 let loc = self.vehicle.location
             else { return nil }
             
             return loc.data
         }
+        
+        self.manager.$centrals
+            .sink{ c in
+                self.vehicle.isConnected = c.count > 0
+                
+                if let loc = vehicle.location {
+                    self.manager.send(loc.data, to: .main_location(for: vehicle.model))
+                }
+            }
+            .store(in: &watch)
     }
     
     func setup() {
         addServices()
         advertise(vehicle)
+        vehicle.isSetup = true
     }
     
     func teardown() {
         removeServices()
         stopAdvertise()
+        vehicle.isSetup = false
     }
     
     func send(_ action: Vehicle.Action) {
-        manager.send(action.data, to: .main_action(for: vehicle))
+        manager.send(action.data, to: .main_action(for: vehicle.model))
     }
     
     func update(location: CLLocation) {
-        manager.send(location.data, to: .main_location(for: vehicle))
+        manager.send(location.data, to: .main_location(for: vehicle.model))
     }
     
     private func advertise(_ vehicle: Vehicle) {
         manager.stopAdvertising()
         manager.startAdvertising([
-            CBAdvertisementDataServiceUUIDsKey: [CBUUID.main_id(for: vehicle)] ,
-            CBAdvertisementDataLocalNameKey: "Rivian " + vehicle.name
+            CBAdvertisementDataServiceUUIDsKey: [CBUUID.main_id(for: vehicle.model)] ,
+            CBAdvertisementDataLocalNameKey: "Rivian " + vehicle.model.rawValue
         ])
     }
     
@@ -54,22 +66,22 @@ class RivianHostLink {
     }
     
     private func addServices() {
-        let s = CBMutableService.main(for: vehicle)
+        let s = CBMutableService.main(for: vehicle.model)
         s.characteristics = [
-            CBMutableCharacteristic.main_location(for: vehicle),
-            CBMutableCharacteristic.main_action(for: vehicle)
+            CBMutableCharacteristic.main_location(for: vehicle.model),
+            CBMutableCharacteristic.main_action(for: vehicle.model)
         ]
         
         manager.add(s)
     }
     
     private func removeServices() {
-        manager.manager.remove(.main(for: vehicle))
+        manager.manager.remove(.main(for: vehicle.model))
     }
     
     private func listenForActions() {
         manager.recievedWrite
-            .filter({$0.char.uuid == .main_action_id(for: self.vehicle)})
+            .filter({$0.char.uuid == .main_action_id(for: self.vehicle.model)})
             .sink { act in
                 if let action = Vehicle.Action(act.data) {
                     self.vehicle.actions.append(action)

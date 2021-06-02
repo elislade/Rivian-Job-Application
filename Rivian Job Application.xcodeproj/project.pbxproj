@@ -273,13 +273,13 @@
 			isa = PBXGroup;
 			children = (
 				1CD1FBBF245C93900069BB8B /* Vehicle.swift */,
+				1CD1FBC1245C93900069BB8B /* Vehicle+Action.swift */,
 				1CF1204326670ECC00A36986 /* VehicleClient.swift */,
 				1CF1204126670EAD00A36986 /* VehicleHost.swift */,
 				1CF1203026658B3900A36986 /* RivianClientLink.swift */,
 				1CF1203F26670E7300A36986 /* RivianHostLink.swift */,
 				1CF120352665951500A36986 /* RivianScanner.swift */,
 				1CD1FBC0245C93900069BB8B /* Extensions.swift */,
-				1CD1FBC1245C93900069BB8B /* Vehicle+Action.swift */,
 				1CD1FBC3245C93900069BB8B /* Structs.swift */,
 				1CD1FBC4245C93900069BB8B /* Vehicle+CB.swift */,
 				1CD1FBC5245C93900069BB8B /* DataCoding.swift */,
