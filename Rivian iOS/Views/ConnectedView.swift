@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ConnectedView: View {
 
-    @ObservedObject var vehicle: Vehicle
+    @ObservedObject var vehicle: VehicleClient
 
     var body: some View {
         VStack(spacing: 0) {

@@ -8,7 +8,7 @@ enum ViewState {
 struct RootView: View {
     
     @State private var state: ViewState = .searching
-    @State private var firstVehicle: Vehicle?
+    @State private var firstVehicle: VehicleClient?
     
     var circleTrany: AnyTransition {
         .asymmetric(
@@ -59,7 +59,7 @@ struct RootView: View {
         .onReceive(RivianScanner.shared.$peripherals, perform: { p in
             if let f = p.first {
                 withAnimation(.easeOut(duration: 2)){
-                    firstVehicle = f.asVehicle()
+                    firstVehicle = f.asVehicleClient
                     state = .loaded
                 }
             }

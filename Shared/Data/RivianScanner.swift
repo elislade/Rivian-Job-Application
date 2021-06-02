@@ -12,8 +12,6 @@ class RivianScanner: ObservableObject {
     @Published var peripherals: Set<ScannedPeripheral> = []
     
     init() {
-        //checkPeripheralCache()
-        
         central.$state.sink{ s in
             if s == .poweredOn {
                 self.checkPeripheralCache()

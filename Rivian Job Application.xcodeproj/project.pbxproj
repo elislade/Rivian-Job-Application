@@ -89,10 +89,20 @@
 		1CF1202B26650F1900A36986 /* LayoutContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBED245C948A0069BB8B /* LayoutContainer.swift */; };
 		1CF1202C26650F2F00A36986 /* RadiatingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF120292664F1A200A36986 /* RadiatingCircles.swift */; };
 		1CF1202D26650F4500A36986 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBA7245C92650069BB8B /* LayoutView.swift */; };
-		1CF1203126658B3900A36986 /* RivianLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1203026658B3900A36986 /* RivianLink.swift */; };
+		1CF1203126658B3900A36986 /* RivianClientLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1203026658B3900A36986 /* RivianClientLink.swift */; };
 		1CF120362665951500A36986 /* RivianScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF120352665951500A36986 /* RivianScanner.swift */; };
 		1CF1203826659C3100A36986 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1203726659C3100A36986 /* LocationView.swift */; };
 		1CF1203A2666F92200A36986 /* VehicleLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF120392666F92200A36986 /* VehicleLinkView.swift */; };
+		1CF1203B26670D8300A36986 /* RivianClientLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1203026658B3900A36986 /* RivianClientLink.swift */; };
+		1CF1203C26670D8600A36986 /* RivianScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF120352665951500A36986 /* RivianScanner.swift */; };
+		1CF1203D26670D8C00A36986 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBC0245C93900069BB8B /* Extensions.swift */; };
+		1CF1203E26670DA100A36986 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FBC3245C93900069BB8B /* Structs.swift */; };
+		1CF1204026670E7300A36986 /* RivianHostLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1203F26670E7300A36986 /* RivianHostLink.swift */; };
+		1CF1204226670EAD00A36986 /* VehicleHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1204126670EAD00A36986 /* VehicleHost.swift */; };
+		1CF1204426670ECC00A36986 /* VehicleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1204326670ECC00A36986 /* VehicleClient.swift */; };
+		1CF12045266710FE00A36986 /* VehicleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1204326670ECC00A36986 /* VehicleClient.swift */; };
+		1CF12046266711B700A36986 /* VehicleHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1204126670EAD00A36986 /* VehicleHost.swift */; };
+		1CF12047266711C300A36986 /* RivianHostLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1203F26670E7300A36986 /* RivianHostLink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,10 +163,13 @@
 		1CF1201F26647D2300A36986 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		1CF12022266498E300A36986 /* ActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsView.swift; sourceTree = "<group>"; };
 		1CF120292664F1A200A36986 /* RadiatingCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiatingCircles.swift; sourceTree = "<group>"; };
-		1CF1203026658B3900A36986 /* RivianLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RivianLink.swift; sourceTree = "<group>"; };
+		1CF1203026658B3900A36986 /* RivianClientLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RivianClientLink.swift; sourceTree = "<group>"; };
 		1CF120352665951500A36986 /* RivianScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RivianScanner.swift; sourceTree = "<group>"; };
 		1CF1203726659C3100A36986 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		1CF120392666F92200A36986 /* VehicleLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleLinkView.swift; sourceTree = "<group>"; };
+		1CF1203F26670E7300A36986 /* RivianHostLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RivianHostLink.swift; sourceTree = "<group>"; };
+		1CF1204126670EAD00A36986 /* VehicleHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleHost.swift; sourceTree = "<group>"; };
+		1CF1204326670ECC00A36986 /* VehicleClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,7 +273,10 @@
 			isa = PBXGroup;
 			children = (
 				1CD1FBBF245C93900069BB8B /* Vehicle.swift */,
-				1CF1203026658B3900A36986 /* RivianLink.swift */,
+				1CF1204326670ECC00A36986 /* VehicleClient.swift */,
+				1CF1204126670EAD00A36986 /* VehicleHost.swift */,
+				1CF1203026658B3900A36986 /* RivianClientLink.swift */,
+				1CF1203F26670E7300A36986 /* RivianHostLink.swift */,
 				1CF120352665951500A36986 /* RivianScanner.swift */,
 				1CD1FBC0245C93900069BB8B /* Extensions.swift */,
 				1CD1FBC1245C93900069BB8B /* Vehicle+Action.swift */,
@@ -528,6 +544,7 @@
 				1CD1FBCA245C93900069BB8B /* Structs.swift in Sources */,
 				1CD1FBDA245C93F30069BB8B /* Peripheral.swift in Sources */,
 				1CD1FB85245C91B90069BB8B /* AppDelegate.swift in Sources */,
+				1CF1204026670E7300A36986 /* RivianHostLink.swift in Sources */,
 				1CD1FBB5245C92650069BB8B /* TextureAtlasView.swift in Sources */,
 				1CD1FBDF245C93F30069BB8B /* CBCentralManagerDelegateWrapper.swift in Sources */,
 				1CD1FBE5245C93F30069BB8B /* Characteristic.swift in Sources */,
@@ -543,7 +560,8 @@
 				1CD1FBC6245C93900069BB8B /* Vehicle.swift in Sources */,
 				1CF12023266498E300A36986 /* ActionsView.swift in Sources */,
 				1CD1FBB6245C92650069BB8B /* HeaderView.swift in Sources */,
-				1CF1203126658B3900A36986 /* RivianLink.swift in Sources */,
+				1CF1203126658B3900A36986 /* RivianClientLink.swift in Sources */,
+				1CF1204226670EAD00A36986 /* VehicleHost.swift in Sources */,
 				1CD1FBB7245C92650069BB8B /* ConnectedView.swift in Sources */,
 				1CD1FBDD245C93F30069BB8B /* Service.swift in Sources */,
 				1CD1FBDC245C93F30069BB8B /* CBPeripheralManagerDelegateWrapper.swift in Sources */,
@@ -551,6 +569,7 @@
 				1CD1FBE3245C93F30069BB8B /* ScannedPeripheral.swift in Sources */,
 				1CD1FBCB245C93900069BB8B /* Vehicle+CB.swift in Sources */,
 				1CF1201D26646F9900A36986 /* AtlasSKNode.swift in Sources */,
+				1CF1204426670ECC00A36986 /* VehicleClient.swift in Sources */,
 				1CD1FBC7245C93900069BB8B /* Extensions.swift in Sources */,
 				1CD1FBAF245C92650069BB8B /* RootView.swift in Sources */,
 				1CD1FBB0245C92650069BB8B /* ActivityIndicator.swift in Sources */,
@@ -571,12 +590,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CE8E53A245C9B7600A30DCB /* VehicleView.swift in Sources */,
+				1CF1203C26670D8600A36986 /* RivianScanner.swift in Sources */,
 				1CD1FC2F245C969B0069BB8B /* PeripheralManager.swift in Sources */,
+				1CF12047266711C300A36986 /* RivianHostLink.swift in Sources */,
 				1CF1202D26650F4500A36986 /* LayoutView.swift in Sources */,
 				1CD1FC29245C969B0069BB8B /* Central.swift in Sources */,
 				1CD1FC1E245C96970069BB8B /* Vehicle.swift in Sources */,
+				1CF12046266711B700A36986 /* VehicleHost.swift in Sources */,
 				1CD1FC24245C96970069BB8B /* DataCoding.swift in Sources */,
 				1CD1FC2C245C969B0069BB8B /* CentralManager.swift in Sources */,
+				1CF12045266710FE00A36986 /* VehicleClient.swift in Sources */,
 				1CA6C044261A47740037E6D4 /* RivianHostApp.swift in Sources */,
 				1CD1FC1A245C96500069BB8B /* HostContentView.swift in Sources */,
 				1CD1FC31245C96A20069BB8B /* CL+DataCodable.swift in Sources */,
@@ -597,8 +620,11 @@
 				1CE8E538245C9ACE00A30DCB /* MapView.swift in Sources */,
 				1CD1FC19245C96500069BB8B /* SelectedVehicle.swift in Sources */,
 				1CD1FC2A245C969B0069BB8B /* CBCentralManagerDelegateWrapper.swift in Sources */,
+				1CF1203E26670DA100A36986 /* Structs.swift in Sources */,
 				1CF1202126647D2300A36986 /* AudioManager.swift in Sources */,
+				1CF1203B26670D8300A36986 /* RivianClientLink.swift in Sources */,
 				1CE8E53F245CA24D00A30DCB /* Vehicle+Action.swift in Sources */,
+				1CF1203D26670D8C00A36986 /* Extensions.swift in Sources */,
 				1CE8E539245C9AF600A30DCB /* TextureAtlasView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

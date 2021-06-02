@@ -2,7 +2,7 @@ import SwiftUI
 
 struct VehicleLinkView: View {
     
-    @ObservedObject var vehicle: Vehicle
+    @ObservedObject var vehicle: VehicleClient
     @State private var isConnected = false
     
     var body: some View {
@@ -20,7 +20,8 @@ struct VehicleLinkView: View {
             } else {
                 Spacer()
             }
-        }.onReceive(vehicle.$isConnected, perform: { flag in
+        }
+        .onReceive(vehicle.$isConnected, perform: { flag in
             withAnimation(.spring()){
                 isConnected = flag
             }
@@ -30,6 +31,6 @@ struct VehicleLinkView: View {
 
 struct VehicleLinkView_Previews: PreviewProvider {
     static var previews: some View {
-        VehicleLinkView(vehicle: .r1t)
+        VehicleLinkView(vehicle: .r1tClient)
     }
 }

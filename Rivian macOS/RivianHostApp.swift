@@ -5,9 +5,7 @@ struct RiviaHostApp: App {
     
     var body: some Scene {
         WindowGroup{
-            HostContentView()
-                .environmentObject(PeripheralManager())
-                .environmentObject(Location())
+            HostContentView().environmentObject(Location())
         }
         .windowStyle(HiddenTitleBarWindowStyle())
         .commands{

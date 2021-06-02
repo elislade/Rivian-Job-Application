@@ -37,7 +37,7 @@ extension CGSize {
 }
 
 extension ScannedPeripheral {
-    func asVehicle() -> Vehicle? {
-        Vehicle.get(from: name ?? "")
+    var asVehicleClient: VehicleClient? {
+        Vehicle.getClient(from: name ?? "")
     }
 }

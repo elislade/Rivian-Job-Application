@@ -17,9 +17,9 @@ struct RadiatingCicles: View  {
                     .opacity(anim ? 0 : 1)
                     .animation(animTemp.delay(Double(i * 2)))
             }
-        }.onAppear{
-            anim.toggle()
         }
+        .shadow(color: .black.opacity(0.1), radius: 2)
+        .onAppear{ anim.toggle() }
     }
 }
 

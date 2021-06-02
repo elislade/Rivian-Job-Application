@@ -3,9 +3,9 @@ import CoreBluetooth
 import CoreLocation
 import Combine
 
-class RivianLink {
+class RivianClientLink {
     
-    weak var vehicle: Vehicle!
+    weak var vehicle: VehicleClient!
     
     var connectedPeriph: Peripheral?
     var services: [Service] = []
@@ -20,7 +20,7 @@ class RivianLink {
         RivianScanner.shared.peripherals.first
     }
     
-    init(_ vehicle: Vehicle){
+    init(_ vehicle: VehicleClient){
         self.vehicle = vehicle
     }
     

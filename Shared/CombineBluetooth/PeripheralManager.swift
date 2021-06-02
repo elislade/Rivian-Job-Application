@@ -4,6 +4,8 @@ import Combine
 
 class PeripheralManager: ObservableObject {
     
+    static let shared = { PeripheralManager() }()
+    
     let manager = CBPeripheralManager()
     let delegate = CBPeripheralManagerDelegateWrapper()
     var centrals: [Central] = []

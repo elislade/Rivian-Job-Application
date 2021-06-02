@@ -3,20 +3,15 @@ import Combine
 
 struct ActionsView: View {
     
-    @EnvironmentObject private var bt: PeripheralManager
-    @ObservedObject var vehicle: Vehicle
+    @ObservedObject var vehicle: VehicleHost
     
     let actions: [Vehicle.Action]
-    
-    func send(_ action: Vehicle.Action){
-        self.bt.send(action.data, to: .main_action(for: self.vehicle))
-    }
     
     func cell(for action: Vehicle.Action) -> some View {
         VStack(spacing: 20) {
             action.image.imageScale(.large).frame(width: 40)
             Text(action.description).fontWeight(.bold).lineLimit(1)
-            Button("Send Back", action: { self.send(action) })
+            Button("Send Back", action: { vehicle.send(action) })
         }.padding(.vertical, 10)
     }
     

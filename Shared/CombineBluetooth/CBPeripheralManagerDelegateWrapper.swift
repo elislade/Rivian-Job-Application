@@ -10,7 +10,7 @@ class CBPeripheralManagerDelegateWrapper: NSObject, CBPeripheralManagerDelegate 
     let didUpdateState = PassthroughSubject<CBManagerState, Never>()
     let isReadyToUpdateSubscribers = PassthroughSubject<Void, Never>()
     let didStartAdvertising = PassthroughSubject<Error?, Never>()
-    let willRestoreState = PassthroughSubject<[String:Any], Never>()
+    let willRestoreState = PassthroughSubject<[String: Any], Never>()
     let didAddService = PassthroughSubject<(service: CBService, error: Error?), Never>()
     
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
