@@ -4,7 +4,7 @@ import Combine
 
 class RivianScanner: ObservableObject {
     
-    static let shared = RivianScanner()
+    static let shared = { RivianScanner() }()
     
     @Published private(set) var peripherals: Set<ScannedPeripheral> = []
     
@@ -14,7 +14,7 @@ class RivianScanner: ObservableObject {
     init() {
         manager.$scannedPeripherals.assign(to: \.peripherals, on: self).store(in: &watch)
         
-        manager.$state.print("state").sink{ s in
+        manager.$state.sink{ s in
             if s == .poweredOn {
                 self.checkPeripheralCache()
             }

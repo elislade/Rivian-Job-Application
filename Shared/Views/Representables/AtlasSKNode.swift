@@ -20,7 +20,7 @@ class AtlasSKNode: SKSpriteNode {
         super.init(coder: aDecoder)
     }
     
-    func set(percent complete: CGFloat, animated: Bool = false) {
+    func set(percent complete: CGFloat, animated: Bool = false, completion: @escaping () -> Void = {}) {
         if isAnimating || atlas.textureNames.isEmpty { return }
         
         let start = index(for: currentComplete)
@@ -41,11 +41,13 @@ class AtlasSKNode: SKSpriteNode {
             run(action){
                 self.isAnimating = false
                 self.currentComplete = complete
+                completion()
             }
         } else {
             let endT = atlas.textureNames.sorted()[end]
             texture = atlas.textureNamed(endT)
             currentComplete = complete
+            completion()
         }
     }
     

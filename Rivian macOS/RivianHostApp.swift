@@ -7,7 +7,7 @@ struct RiviaHostApp: App {
         WindowGroup{
             HostContentView().environmentObject(Location())
         }
-        //.windowStyle(HiddenTitleBarWindowStyle())
+        .windowStyle(HiddenTitleBarWindowStyle())
         .commands{
             SidebarCommands()
             EmptyCommands()

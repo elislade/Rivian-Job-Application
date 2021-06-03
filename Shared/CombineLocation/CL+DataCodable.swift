@@ -2,7 +2,7 @@ import Foundation
 import CoreLocation
 import MapKit
 
-extension CLLocationCoordinate2D:DataCodable {
+extension CLLocationCoordinate2D: DataCodable {
     init?(_ data: Data) {
         guard
             let lat = Double(data.subdata(in: 0..<8)),
@@ -12,7 +12,7 @@ extension CLLocationCoordinate2D:DataCodable {
         self.init(latitude: lat, longitude: lng)
     }
     
-    var data:Data { latitude.data + longitude.data }
+    var data: Data { latitude.data + longitude.data }
 }
 
 extension CLLocationCoordinate2D: Equatable {
@@ -54,17 +54,17 @@ extension CLLocation {
     }
     
     
-    static let layoutTypes:[DataCodable.Type] = [
+    static let layoutTypes: [DataCodable.Type] = [
         // NOTE: - Location data protocol
         // [coord = 16bytes, alt = 8bytes, hacc = 8bytes, vacc = 8bytes, timestamp = 8bytes]
         CLLocationCoordinate2D.self, Double.self, Double.self, Double.self, Date.self
     ]
     
-    static var byteSize:Int {
+    static var byteSize: Int {
         layoutTypes.map({ $0.byteSize }).reduce(0, { $0 + $1 })
     }
     
-    convenience init?(_ data:Data) {
+    convenience init?(_ data: Data) {
         guard let s = Self.decode(data) else { return nil }
         
         self.init(
@@ -78,7 +78,7 @@ extension CLLocation {
 }
 
 
-extension CLLocation:MKAnnotation {}
+extension CLLocation: MKAnnotation {}
 
 extension CLLocation {
     func address(completion: @escaping (String?) -> Void) {

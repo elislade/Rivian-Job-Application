@@ -16,7 +16,9 @@ class RivianClientLink {
     private var manager: CentralManager { CentralManager.shared }
     
     private var scannedPeriph: ScannedPeripheral? {
-        RivianScanner.shared.peripherals.first
+        RivianScanner.shared.peripherals.first(where: {
+            vehicle == $0.asVehicleClient
+        })
     }
     
     init(_ vehicle: VehicleClient){
@@ -86,8 +88,9 @@ class RivianClientLink {
     private func listenToLocationChange() {
         guard let loc = locationChar else { return }
         
-        loc.$value.sink { loc in
-            self.vehicle.location = CLLocation(loc ?? Data())
+        loc.$value.sink {
+            guard let data = $0, let loc = CLLocation(data) else { return }
+            self.vehicle.location = loc
         }.store(in: &watch)
     }
 }

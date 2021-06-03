@@ -76,11 +76,6 @@ class Characteristic: ObservableObject {
         // Hard to distinguish between value updates that
         // are chunked from sendUpdates or just whole data
         // pieces that are from readRequests.
-        // For now just send every data piece to characteristic
-        // and chunked data will eventually overwrite
-        // partial data when concatinated
-        
-        self.value = value
         
         if let data = value {
             if "EOM".data == data {

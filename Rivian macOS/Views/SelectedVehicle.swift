@@ -10,37 +10,25 @@ struct SelectedVehicle: View {
         guard let loc = self.locManager.location else { return }
         vehicle.update(location: loc)
     }
-    
-    var header: some View {
-        Group {
-            if vehicle.isSetup {
-                Button("Teardown", action: vehicle.teardown)
-            } else {
-                Button("Setup", action: vehicle.setup)
-            }
-        }
-    }
-    
+
     var body: some View {
-        VStack(spacing: 0) {
-            HStack {
-                Spacer()
-                header
-                Spacer()
-            }.padding([.horizontal, .top])
+        VStack(spacing: 16) {
+            ActionsView(actions: vehicle.actions, sendBack: vehicle.send)
             
             if locManager.location != nil {
                 MapView(anno: locManager.location!)
+                    .id(locManager.location!)
                     .cornerRadius(5)
                     .overlay(Button("Send Location", action: sendLocation).padding(), alignment: .topTrailing)
-                    .padding()
-                    .onAppear{
-                        vehicle.update(location: locManager.location!)
+                    .onAppear {
+                        if let loc = locManager.location {
+                            vehicle.update(location: loc)
+                        }
                     }
             }
-            
-            ActionsView(vehicle: vehicle, actions: vehicle.actions)
-        }.onAppear(perform: vehicle.setup)
+        }
+        .onAppear(perform: vehicle.setup)
+        .padding()
     }
 }
 

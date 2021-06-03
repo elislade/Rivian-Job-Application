@@ -13,8 +13,8 @@ struct AtlasTexture {
         n.scale(to: scene.size)
         n.position = CGPoint(x: 0.5, y: 0.5)
         scene.addChild(n)
-        self.control.listen{ comp, anim in
-            n.set(percent: comp, animated: anim)
+        self.control.listen{ l in
+            n.set(percent: l.percent, animated: l.animated, completion: l.completion)
         }
         
         let view = SKView()
@@ -58,13 +58,20 @@ extension AtlasTexture: NSViewRepresentable {
 
 
 class TextureControl {
-    private var listener: (CGFloat, Bool) -> Void = { _, _ in }
     
-    func set(percent complete: CGFloat, animated: Bool = false){
-        listener(complete, animated)
+    struct Config {
+        var percent: CGFloat = 0
+        var animated = false
+        var completion: () -> Void = {}
     }
     
-    fileprivate func listen(_ c: @escaping (CGFloat, Bool) -> Void) {
+    private var listener: (Config) -> Void = { _ in }
+    
+    func set(percent complete: CGFloat, animated: Bool = false, completion: @escaping () -> Void = {}){
+        listener(Config(percent: complete, animated: animated, completion: completion))
+    }
+    
+    fileprivate func listen(_ c: @escaping (Config) -> Void) {
         self.listener = c
     }
 }
