@@ -29,8 +29,7 @@ class RivianHostLink {
                 if let loc = vehicle.location {
                     self.manager.send(loc.data, to: .main_location(for: vehicle.model))
                 }
-            }
-            .store(in: &watch)
+            }.store(in: &watch)
     }
     
     func setup() {

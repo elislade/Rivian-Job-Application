@@ -40,7 +40,7 @@ struct SelectedVehicle: View {
             }
             
             ActionsView(vehicle: vehicle, actions: vehicle.actions)
-        }
+        }.onAppear(perform: vehicle.setup)
     }
 }
 

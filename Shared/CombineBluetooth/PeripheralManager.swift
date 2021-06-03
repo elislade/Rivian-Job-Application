@@ -9,11 +9,15 @@ class PeripheralManager: ObservableObject {
     let manager = CBPeripheralManager()
     let delegate = CBPeripheralManagerDelegateWrapper()
     
-    @Published var centrals: Set<Central> = []
-    @Published var isAdvertising = false
-    @Published var state: CBManagerState = .unknown
+    @Published private(set) var centrals: Set<Central> = []
+    @Published private(set) var isAdvertising = false
+    @Published private(set) var state: CBManagerState = .unknown
     
     private var watch: Set<AnyCancellable> = []
+    private var tempData: [CBUUID: Data] = [:]
+    
+    let recievedWrite = PassthroughSubject<(char: CBCharacteristic, data: Data), Never>()
+    var reqValue: (CBUUID) -> Data? = { _ in nil }
     
     init(){
         self.manager.delegate = delegate
@@ -21,9 +25,41 @@ class PeripheralManager: ObservableObject {
         listenToWrite()
         listenToRead()
         listenToSubscribers()
+        
+        delegate.didStartAdvertising.sink { _ in
+            self.isAdvertising = true
+        }.store(in: &watch)
     }
-
-    func listenToSubscribers() {
+    
+    func startAdvertising(_ advertisementData: [String: Any]? = nil) {
+        manager.startAdvertising(advertisementData)
+    }
+    
+    func stopAdvertising() {
+        manager.stopAdvertising()
+        isAdvertising = false
+    }
+    
+    func send(_ data: Data, to char: CBMutableCharacteristic) {
+        for central in centrals {
+            central.send(data, to: char)
+        }
+    }
+    
+    func add(_ service: CBMutableService) {
+        manager.add(service)
+        
+        delegate.didAddService
+            .filter({$0.0.uuid == service.uuid})
+            .sink { print("Added service", $0) }
+            .store(in: &watch)
+    }
+    
+    func remove(_ service: CBMutableService) {
+        manager.remove(service)
+    }
+    
+    private func listenToSubscribers() {
         delegate.didSubscribeToCharacteristic.sink { central, chars in
             self.centrals.update(with: Central(manager: self, central: central))
         }.store(in: &watch)
@@ -35,35 +71,13 @@ class PeripheralManager: ObservableObject {
         }.store(in: &watch)
     }
     
-    func listenToState(){
+    private func listenToState() {
         delegate.didUpdateState
             .assign(to: \.state, on: self)
             .store(in: &watch)
     }
     
-    func startAdvertising(_ advertisementData: [String: Any]? = nil) {
-        manager.startAdvertising(advertisementData)
-        
-        delegate.didStartAdvertising.sink { _ in
-            self.isAdvertising = true
-        }.store(in: &watch)
-    }
-    
-    func stopAdvertising() {
-        manager.stopAdvertising()
-        isAdvertising = false
-    }
-    
-    var tempData: [CBUUID: Data] = [:]
-    let recievedWrite = PassthroughSubject<(char: CBCharacteristic, data: Data), Never>()
-    
-    func send(_ data: Data, to char: CBMutableCharacteristic) {
-        for central in centrals {
-            central.send(data, to: char)
-        }
-    }
-    
-    func listenToWrite() {
+    private func listenToWrite() {
         delegate.didRecieveWrite.sink {
             for req in $0 {
                 if let data = req.value {
@@ -81,26 +95,10 @@ class PeripheralManager: ObservableObject {
         }.store(in: &watch)
     }
     
-    
-    var reqValue: (CBUUID) -> Data? = {_ in nil}
-    
-    func listenToRead() {
+    private func listenToRead() {
         delegate.didRecieveRead.sink {
             $0.value = self.reqValue($0.characteristic.uuid)
             self.manager.respond(to: $0, withResult: .success)
         }.store(in: &watch)
-    }
-    
-    func add(_ service: CBMutableService) {
-        manager.add(service)
-        
-        delegate.didAddService
-            .filter({$0.0.uuid == service.uuid})
-            .sink { print("Added service", $0) }
-            .store(in: &watch)
-    }
-    
-    func remove(_ service: CBMutableService) {
-        manager.remove(service)
     }
 }

@@ -290,17 +290,17 @@
 		1CD1FBCD245C93F30069BB8B /* CombineBluetooth */ = {
 			isa = PBXGroup;
 			children = (
-				1CD1FBCE245C93F30069BB8B /* Peripheral.swift */,
 				1CD1FBCF245C93F30069BB8B /* CBPeripheralDelegateWrapper.swift */,
 				1CD1FBD0245C93F30069BB8B /* CBPeripheralManagerDelegateWrapper.swift */,
-				1CD1FBD1245C93F30069BB8B /* Service.swift */,
+				1CD1FBD8245C93F30069BB8B /* PeripheralManager.swift */,
 				1CD1FBD2245C93F30069BB8B /* Central.swift */,
 				1CD1FBD3245C93F30069BB8B /* CBCentralManagerDelegateWrapper.swift */,
-				1CD1FBD4245C93F30069BB8B /* Descriptor.swift */,
 				1CD1FBD5245C93F30069BB8B /* CentralManager.swift */,
 				1CD1FBD7245C93F30069BB8B /* ScannedPeripheral.swift */,
-				1CD1FBD8245C93F30069BB8B /* PeripheralManager.swift */,
+				1CD1FBCE245C93F30069BB8B /* Peripheral.swift */,
+				1CD1FBD1245C93F30069BB8B /* Service.swift */,
 				1CD1FBD9245C93F30069BB8B /* Characteristic.swift */,
+				1CD1FBD4245C93F30069BB8B /* Descriptor.swift */,
 			);
 			path = CombineBluetooth;
 			sourceTree = "<group>";

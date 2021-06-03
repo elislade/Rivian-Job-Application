@@ -6,24 +6,24 @@ class RivianScanner: ObservableObject {
     
     static let shared = RivianScanner()
     
-    private var central: CentralManager { CentralManager.shared }
-    private var watch: Set<AnyCancellable> = []
+    @Published private(set) var peripherals: Set<ScannedPeripheral> = []
     
-    @Published var peripherals: Set<ScannedPeripheral> = []
+    private var watch: Set<AnyCancellable> = []
+    private var manager: CentralManager { CentralManager.shared }
     
     init() {
-        central.$state.sink{ s in
+        manager.$scannedPeripherals.assign(to: \.peripherals, on: self).store(in: &watch)
+        
+        manager.$state.print("state").sink{ s in
             if s == .poweredOn {
                 self.checkPeripheralCache()
             }
         }.store(in: &watch)
-        
-        central.$scannedPeripherals.assign(to: \.peripherals, on: self).store(in: &watch)
     }
     
     func checkPeripheralCache() {
-        if peripherals.count == 0 {
-            CentralManager.shared.scanForPeripherals(
+        if peripherals.isEmpty {
+            manager.scanForPeripherals(
                 withServices: [.r1s_main_id, .r1t_main_id],
                 options: [CBPeripheralManagerOptionShowPowerAlertKey: true]
             )

@@ -42,7 +42,7 @@ extension ScannedPeripheral {
         
         for model in Vehicle.Model.allCases {
             if name.lowercased().contains(model.rawValue) {
-                return Vehicle.getClient(from: model)
+                return Vehicle.client(from: model)
             }
         }
         

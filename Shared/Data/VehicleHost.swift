@@ -10,8 +10,8 @@ class VehicleHost: Vehicle, ObservableObject {
     @Published var isConnected: Bool = false
     @Published var actions: [Action] = []
     
-    override init(model: Model, uuidString: String){
-        super.init(model: model, uuidString: uuidString)
+    override init(model: Model, id: String){
+        super.init(model: model, id: id)
         self.link = RivianHostLink(self)
     }
     

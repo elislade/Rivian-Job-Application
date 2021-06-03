@@ -61,6 +61,7 @@ struct RootView: View {
         .colorScheme(state == .searching ? .dark : .light)
         .edgesIgnoringSafeArea(.all)
         .onReceive(RivianScanner.shared.$peripherals, perform: { p in
+            print("ascdc", p)
             if let f = p.first {
                 withAnimation(.easeInOut(duration: 1.3)){
                     firstVehicle = f.asVehicleClient
@@ -73,6 +74,6 @@ struct RootView: View {
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView().environmentObject(CentralManager())
+        RootView()
     }
 }

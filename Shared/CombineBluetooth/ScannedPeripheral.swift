@@ -37,6 +37,6 @@ extension ScannedPeripheral: Equatable {
 
 extension ScannedPeripheral: Hashable {
     func hash(into hasher: inout Hasher) {
-        peripheral.hash(into: &hasher)
+        hasher.combine(peripheral)
     }
 }

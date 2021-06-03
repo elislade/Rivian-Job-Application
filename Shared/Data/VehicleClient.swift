@@ -5,8 +5,8 @@ class VehicleClient: Vehicle, ObservableObject {
     
     private var link: RivianClientLink?
     
-    override init(model: Model, uuidString: String){
-        super.init(model: model, uuidString: uuidString)
+    override init(model: Model, id: String){
+        super.init(model: model, id: id)
         self.link = RivianClientLink(self)
     }
     

@@ -7,21 +7,30 @@ class RivianClientLink {
     
     weak var vehicle: VehicleClient!
     
-    var connectedPeriph: Peripheral?
-    var services: [Service] = []
-    var characteristics: [Characteristic] = []
-    var actionChar: Characteristic?
-    var locationChar: Characteristic?
-    
+    private var connectedPeriph: Peripheral?
+    private var services: [Service] = []
+    private var characteristics: [Characteristic] = []
+    private var actionChar: Characteristic?
+    private var locationChar: Characteristic?
     private var watch: Set<AnyCancellable> = []
-    private var central: CentralManager { CentralManager.shared }
+    private var manager: CentralManager { CentralManager.shared }
     
-    var scannedPeriph: ScannedPeripheral? {
+    private var scannedPeriph: ScannedPeripheral? {
         RivianScanner.shared.peripherals.first
     }
     
     init(_ vehicle: VehicleClient){
         self.vehicle = vehicle
+        
+        manager.$connectedPeripherals.sink(receiveValue: { periphs in
+            if let p = periphs.first {
+                self.vehicle.isConnected = true
+                self.connectedPeriph = p
+                self.setupPeripheral()
+            } else {
+                self.vehicle.isConnected = false
+            }
+        }).store(in: &watch)
     }
     
     func send(action: Vehicle.Action) {
@@ -32,18 +41,8 @@ class RivianClientLink {
     }
     
     func connect() {
-        guard let scan = scannedPeriph else { print("no scan available"); return }
-        
-        central.connect(scan.peripheral.peripheral, options: nil)
-        central.$connectedPeripherals.sink(receiveValue: { periphs in
-            if let p = periphs.first {
-                self.vehicle.isConnected = true
-                self.connectedPeriph = p
-                self.setupPeripheral()
-            } else {
-                self.vehicle.isConnected = false
-            }
-        }).store(in: &watch)
+        guard let scan = scannedPeriph else { return }
+        manager.connect(scan.peripheral.peripheral, options: nil)
     }
     
     func disconnect() {
@@ -76,11 +75,11 @@ class RivianClientLink {
             for c in chars {
                 if c.id == loc {
                     self.locationChar = c
+                    self.listenToLocationChange()
                 } else if c.id == act {
                     self.actionChar = c
                 }
             }
-            self.listenToLocationChange()
         }.store(in: &watch)
     }
     

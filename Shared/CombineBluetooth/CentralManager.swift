@@ -5,9 +5,7 @@ import os
 
 class CentralManager: ObservableObject {
     
-    static var shared: CentralManager = {
-        CentralManager()
-    }()
+    static var shared: CentralManager = { CentralManager() }()
     
     let manager: CBCentralManager!
     let delegate = CBCentralManagerDelegateWrapper()
@@ -18,39 +16,22 @@ class CentralManager: ObservableObject {
     @Published private(set) var isScanning = false
     
     private var watch: Set<AnyCancellable> = []
-    
-    init() {
-//        if UserDefaults.standard.centralManagerRestorationID == nil {
-//            UserDefaults.standard.centralManagerRestorationID = UUID().uuidString
-//        }
-//
-//        let id = UserDefaults.standard.centralManagerRestorationID ?? ""
-        
-        self.manager = CBCentralManager(
-            delegate: delegate,
-            queue: nil,
-            options: [
-                CBCentralManagerOptionShowPowerAlertKey: true //, CBCentralManagerOptionRestoreIdentifierKey: id
-            ]
-        )
-        
-        listenToState()
-    }
-
-    func listenToState() {
-        delegate.didUpdateState
-            .assign(to: \.state, on: self)
-            .store(in: &watch)
-    }
-
     private var scanDuration: TimeInterval = 4
     private var scanInterval: TimeInterval = 1.0
     private var lastScanStartDate = Date()
     
-    var shouldAutoScan = true
-    
-    func scanForPeripherals(withServices uuids: [CBUUID]? = nil, options: [String: Any]? = nil) {
-        manager.scanForPeripherals(withServices: uuids, options: options)
+    init() {
+        self.manager = CBCentralManager(
+            delegate: delegate,
+            queue: nil,
+            options: [
+                CBCentralManagerOptionShowPowerAlertKey: true
+            ]
+        )
+        
+        delegate.didUpdateState
+            .assign(to: \.state, on: self)
+            .store(in: &watch)
         
         delegate.didDiscoverPeripheral
             .filter({ $0.rssi.intValue >= -65 })
@@ -66,10 +47,6 @@ class CentralManager: ObservableObject {
                 self.scannedPeripherals.formUnion($0)
                 self.manager.stopScan()
             }.store(in: &watch)
-    }
-    
-    func connect(_ peripheral: CBPeripheral, options: [String: Any]?) {
-        manager.connect(peripheral, options: options)
         
         delegate.didConnectPeripheral.sink {
             self.connectedPeripherals.update(with: Peripheral(self, peripheral: $0))
@@ -86,8 +63,22 @@ class CentralManager: ObservableObject {
             }
         }.store(in: &watch)
     }
-
     
+    func scanForPeripherals(withServices uuids: [CBUUID]? = nil, options: [String: Any]? = nil) {
+        manager.scanForPeripherals(withServices: uuids, options: options)
+    }
+    
+    func stopScan() {
+        if manager.isScanning {
+            manager.stopScan()
+            isScanning = false
+        }
+    }
+    
+    func connect(_ peripheral: CBPeripheral, options: [String: Any]?) {
+        manager.connect(peripheral, options: options)
+    }
+
     func disconnect(_ peripheral: CBPeripheral) {
         manager.cancelPeripheralConnection(peripheral)
     }
@@ -99,16 +90,8 @@ class CentralManager: ObservableObject {
             if Date() >= targetEndDate {
                 stopScan()
             } else {
-                let time = DispatchTime.now() + 0.02
-                DispatchQueue.main.asyncAfter(deadline: time, execute: scanningTick)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.02, execute: scanningTick)
             }
-        }
-    }
-    
-    func stopScan() {
-        if manager.isScanning {
-            manager.stopScan()
-            isScanning = false
         }
     }
     

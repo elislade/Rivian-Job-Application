@@ -5,7 +5,7 @@ import CoreBluetooth
 typealias Info = (name: String, image: Image?)
 
 extension CBService {
-    var info: Info  {
+    var info: Info {
         if uuid == .r1t_main_id || uuid == .r1s_main_id {
             return ("Rivian Vehicle", Image(systemName: "car.fill"))
         }
@@ -19,7 +19,6 @@ protocol UUIDInfo {
     var uuid: CBUUID { get }
     var name: String { get }
     var image: Image? { get }
-    //func decode<D:DataCodable>(value: D) -> Data
     var data: DataType.Type { get }
 }
 

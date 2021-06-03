@@ -48,13 +48,13 @@ class CBCentralManagerDelegateWrapper: NSObject, CBCentralManagerDelegate {
     #if os(iOS)
     let didUpdateANCSAuthorizationForPeripheral = PassthroughSubject<CBPeripheral, Never>()
     
-    func centralManager(_ central: CBCentralManager, didUpdateANCSAuthorizationFor peripheral: CBPeripheral) {
+    func centralManager(_ manager: CBCentralManager, didUpdateANCSAuthorizationFor peripheral: CBPeripheral) {
         didUpdateANCSAuthorizationForPeripheral.send(peripheral)
     }
     
     let connectionEventDidOccur = PassthroughSubject<(CBConnectionEvent, CBPeripheral), Never>()
     
-    func centralManager(_ central: CBCentralManager, connectionEventDidOccur event: CBConnectionEvent, for peripheral: CBPeripheral) {
+    func centralManager(_ manager: CBCentralManager, connectionEventDidOccur event: CBConnectionEvent, for peripheral: CBPeripheral) {
         connectionEventDidOccur.send((event, peripheral))
     }
     #endif

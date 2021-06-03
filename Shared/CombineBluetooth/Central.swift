@@ -6,20 +6,16 @@ class Central {
     
     weak var manager: PeripheralManager!
     let central: CBCentral
-    
     var characteristics: [CBMutableCharacteristic] = []
+    
+    private var watch: Set<AnyCancellable> = []
     
     init(manager: PeripheralManager, central: CBCentral) {
         self.manager = manager
         self.central = central
-        listenToReady()
-    }
-    
-    private var readyPub: AnyCancellable?
-    func listenToReady() {
-        readyPub = manager.delegate.isReadyToUpdateSubscribers.sink {
-            self.processQueue()
-        }
+        self.manager.delegate.isReadyToUpdateSubscribers
+            .sink { self.processQueue() }
+            .store(in: &watch)
     }
     
     func send(_ data: Data, to char: CBMutableCharacteristic) {
