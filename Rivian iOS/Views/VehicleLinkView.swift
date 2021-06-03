@@ -5,10 +5,13 @@ struct VehicleLinkView: View {
     @ObservedObject var vehicle: VehicleClient
     @State private var isConnected = false
     
+    let textureControl = TextureControl()
+    
     var body: some View {
         Group {
             Button(action: vehicle.connect){
-                VehicleView(vehicle: vehicle)
+                VehicleView(vehicle: vehicle, textureControl: textureControl)
+                    .onAppear{ textureControl.set(percent: 0) }
             }
             .disabled(isConnected)
             .zIndex(2)
@@ -22,6 +25,7 @@ struct VehicleLinkView: View {
             }
         }
         .onReceive(vehicle.$isConnected, perform: { flag in
+            textureControl.set(percent: flag ? 0 : 1, animated: true)
             withAnimation(.spring()){
                 isConnected = flag
             }
